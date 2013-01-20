@@ -31,12 +31,21 @@ get_header(); ?>
 		<div class="row" id="home-projects">
 			<div class="row">
 				<div class="span4 offset4 htitle">
-				
+				Projects
 				</div>
 			</div>
 			<div class="row">
 				<div class="span10 offset2 hbox">
-			
+					<div class="span4">
+					Project Calvinball
+					</div>
+					<div class="span4">
+					Nature Scholar
+					</div>
+					<div class="span4">
+					Ecohyphen
+					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -44,12 +53,12 @@ get_header(); ?>
 		<div class="row" id="home-wp">
 			<div class="row">
 				<div class="span4 offset4 htitle">
-				
+				Word Press
 				</div>
 			</div>
 			<div class="row">
 				<div class="span10 offset2 hbox">
-			
+					
 				</div>
 			</div>
 		</div>
@@ -59,7 +68,7 @@ get_header(); ?>
 		<div class="row" id="home-writing">
 			<div class="row">
 				<div class="span4 offset4 htitle">
-				
+				Writing
 				</div>
 			</div>
 			<div class="row">
