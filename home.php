@@ -30,12 +30,12 @@ get_header(); ?>
 <!--Projects-->
 		<div class="row" id="home-projects">
 			<div class="row">
-				<div class="span4 offset4">
+				<div class="span4 offset4 htitle">
 				
 				</div>
 			</div>
 			<div class="row">
-				<div class="span10 offset2">
+				<div class="span10 offset2 hbox">
 			
 				</div>
 			</div>
@@ -43,12 +43,12 @@ get_header(); ?>
 <!--Word Press Dev-->
 		<div class="row" id="home-wp">
 			<div class="row">
-				<div class="span4 offset4">
+				<div class="span4 offset4 htitle">
 				
 				</div>
 			</div>
 			<div class="row">
-				<div class="span10 offset2">
+				<div class="span10 offset2 hbox">
 			
 				</div>
 			</div>
@@ -58,12 +58,12 @@ get_header(); ?>
 	<div class="row" id="home-main">
 		<div class="row" id="home-writing">
 			<div class="row">
-				<div class="span4 offset4">
+				<div class="span4 offset4 htitle">
 				
 				</div>
 			</div>
 			<div class="row">
-				<div class="span10 offset2">
+				<div class="span10 offset2 hbox">
 			
 				</div>
 			</div>
