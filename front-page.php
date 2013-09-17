@@ -13,14 +13,18 @@ get_header(); ?>
 <section id="primary" class="span12">
 	<?php tha_content_before(); ?>
 	<div id="content" role="main">
-		<?php tha_content_top();
+		<?php tha_content_top(); ?>
 		
-		//the_post(); ?>
+		<?php
+			//Get the marketting_settings pod object
+			$top = pods('marketing_settings');
+		?>
+			
 		<!-- Jumbotron -->
-		//use custom settings page to get this
       <div class="jumbotron">
-        <h1>Marketing stuff!</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <h1><?php echo $top->display('front_page_tagline'); ?></h1>
+        <p class="lead"><?php echo $top->display('front_page_text'); ?></p>
+        <!--What to use for this (CTA destination?) ??-->
         <a class="btn btn-large btn-success" href="#">Get started today</a>
       </div>
 
