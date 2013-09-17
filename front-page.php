@@ -16,29 +16,25 @@ get_header(); ?>
 		<?php tha_content_top(); ?>
 		
 		<?php
+			/**TOP OF PAGE**/
 			//Get the marketting_settings pod object
 			$top = pods('marketing_settings');
-		?>
-			
-		<!-- Jumbotron -->
-      <div class="jumbotron">
-        <h1><?php echo $top->display('front_page_tagline'); ?></h1>
-        <p class="lead"><?php echo $top->display('front_page_text'); ?></p>
-        <!--What to use for this (CTA destination?) ??-->
-        <a class="btn btn-large btn-success" href="#">Get started today</a>
-      </div>
-
-      <hr>
-      <?php
-      //setup parameters before getting features pod
-		$params = array( 
-			//limit to three
-        	'limit'   => 3
-   		 ); 
-		//get the main features and put them in $features array
-		$features = pods('feature', $params);
-		//define text Domain
-		$domain = 'ht';
+			//set up vars for jumbotron
+			$tag = $top->display('front_page_tagline');
+			$text = $top->display('front_page_text');
+			//Do the jumbotron
+			jp_jumbotron($tag, $text);
+		
+			/**BOTTOM OF PAGE**/
+		  	//setup parameters before getting features pod
+			$params = array( 
+				//limit to three
+				'limit'   => 3
+			 ); 
+			//get the main features and put them in $features array
+			$features = pods('feature', $params);
+			//define text Domain
+			$domain = 'ht';
 	?>
 
       <!-- Example row of columns -->

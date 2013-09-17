@@ -6,6 +6,12 @@
  * @since		1.0.0 - 05.02.2012
  */
 
+/**
+* Add Josh's functions
+*
+* @author Josh Pollock
+*/
+require_once('inc/jp-functions.php');
 
 if ( ! function_exists( 'the_bootstrap_setup' ) ):
 /**
