@@ -7,7 +7,8 @@
  * @package The Bootstrap
  * @since	1.3.0	- 29.04.2012
  */
-
+//define text Domain
+$domain = 'ht';
 get_header(); ?>
 
 <section id="primary" class="span12">
@@ -23,7 +24,7 @@ get_header(); ?>
 			$tag = $top->display('front_page_tagline');
 			$text = $top->display('front_page_text');
 			//Do the jumbotron
-			jp_jumbotron($tag, $text);
+			jp_jumbotron($tag, $text, $domain);
 		
 			/**BOTTOM OF PAGE**/
 		  	//setup parameters before getting features pod
@@ -33,8 +34,7 @@ get_header(); ?>
 			 ); 
 			//get the main features and put them in $features array
 			$features = pods('feature', $params);
-			//define text Domain
-			$domain = 'ht';
+			
 	?>
 
       <!-- Example row of columns -->
