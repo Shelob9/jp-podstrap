@@ -21,10 +21,12 @@ get_header(); ?>
 			//Get the marketting_settings pod object
 			$top = pods('marketing_settings');
 			//set up vars for jumbotron
-			$tag = $top->display('front_page_tagline');
+			$tagline = $top->display('front_page_tagline');
 			$text = $top->display('front_page_text');
+			$cta = true;
+			$link = 'http://google.com';
 			//Do the jumbotron
-			jp_jumbotron($tag, $text, $domain);
+			jp_jumbotron($tagline, $text, $domain, $cta, $link);
 		
 			/**BOTTOM OF PAGE**/
 		  	//setup parameters before getting features pod
