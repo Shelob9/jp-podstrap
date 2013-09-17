@@ -15,7 +15,7 @@ get_header(); ?>
 	<div id="content" role="main">
 		<?php tha_content_top();
 		
-		<?php //the_post(); ?>
+		//the_post(); ?>
 		<!-- Jumbotron -->
 		//use custom settings page to get this
       <div class="jumbotron">
@@ -32,7 +32,9 @@ get_header(); ?>
         	'limit'   => 3
    		 ); 
 		//get the main features and put them in $features array
-		$features = pods('features', $params);
+		$features = pods('feature', $params);
+		//define text Domain
+		$domain = 'ht';
 	?>
 
       <!-- Example row of columns -->
@@ -41,13 +43,15 @@ get_header(); ?>
       	<?php 
 			if ( 0 < $features->total() ) { 
 				while ( $features->fetch() ) { 
-					foreach ($features as $feature) ): ?>
-						<div class="span4">
-							<h2><?php _e($feature->short_title, $domain); ?></h2>
-							<p><?php _e($feature->short_desc, $domain); ?> </p>
-							<p><a class="btn" href="<?php esc_url(get_permalink($feature->id) ); ?>">View details &raquo;</a></p>
-						</div>
-					<?php endforeach;
+					//put ID in a var to be used in get_permalink
+					$id = $features->field('ID');
+					?>
+					<div class="span4">
+						<h2><?php _e($features->display('short_title'), $domain); ?></h2>
+						<p><?php _e($features->display('short_desc'), $domain); ?> </p>
+						<p><a class="btn" href="<?php echo esc_url(get_permalink( $id) ); ?>">View details &raquo;</a></p>
+					</div>
+				<?php 
 				}
 			}
 		?>
@@ -139,5 +143,5 @@ function ht_front_style() { ?>
         border-radius: 0 3px 3px 0;
       }
     </style>
-<?php
+<?php }
 add_action('wp_head', 'front_style');
