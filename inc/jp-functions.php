@@ -68,4 +68,57 @@ function jp_feature_submenu( $fPodId, $domain ) {
 <?php
 }
 endif; // ! jp_feature_submenu exists
+
+
+/**
+* Add JS and CSS for this
+*
+* @author Josh pollock
+*/
+if ( ! function_exists( 'jp_scripts_styles') ) :
+function jp_scripts_styles() {
+	wp_enqueue_script( 'backstretch', get_template_directory_uri().'/js/jquery.backstretch.min.js', array( 'jquery'), false, false );
+	wp_enqueue_script( 'jp-style', get_template_directory_uri().'/css/jp.css' );
+}
+add_action('wp_enqueue_scripts', 'jp_scripts_styles');
+endif; // ! jp_scripts_styles exists
+
+/**
+* Backstretch on jumbotron
+*
+* @author Josh Pollock
+*/
+if ( ! function_exists( 'jp_jumbostretch' ) ) :
+function jp_jumbostretch() {
+	$pod = pods();
+	$img = $pod->field( 'top_bg' );
+	$img_id = $img['ID'];
+	$img_src = wp_get_attachment_url( $img_id );
+	//output the script into the footer
+	echo '<script>';
+	echo 'jQuery(".jumbotron").backstretch("'.$img_src.'");';
+	echo '</script>';
+}
+add_action('wp_footer', 'jp_jumbostretch');
+endif; // ! jp_jumbostretch exists
+
+/**
+* Output dynamically generated CSS to header
+*
+* @author Josh Pollock
+*/
+if ( ! function_exists ( 'jp_dynamic_styles') ) :
+function jp_dynamic_styles() {
+	$pod = pods();
+	$title = $pod->field( 'top_title_color' );
+	$text = $pod->field( 'top_text_color' );
+?>
+	<style>
+		.jumbotron h1{color: <?php echo $title; ?>;}
+		.jumbotron p{color: <?php echo $text; ?>;}
+	</style>
+<?php
+}
+add_action( 'wp_head', 'jp_dynamic_styles' );
+endif; // ! jp_dynamic_styles exists
 ?>
