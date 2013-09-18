@@ -78,7 +78,7 @@ endif; // ! jp_feature_submenu exists
 if ( ! function_exists( 'jp_scripts_styles') ) :
 function jp_scripts_styles() {
 	wp_enqueue_script( 'backstretch', get_template_directory_uri().'/js/jquery.backstretch.min.js', array( 'jquery'), false, false );
-	wp_enqueue_script( 'jp-style', get_template_directory_uri().'/css/jp.css' );
+	wp_enqueue_style( 'jp-style', get_template_directory_uri().'/css/jp.css' );
 }
 add_action('wp_enqueue_scripts', 'jp_scripts_styles');
 endif; // ! jp_scripts_styles exists
