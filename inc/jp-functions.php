@@ -184,6 +184,34 @@ function jp_related_features($domain) {
 }
 endif; // ! jp_related_features exists
 
-$GLOBALS[ 'loremLong' ] =  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis tempor nisl, et condimentum sem adipiscing ac. Suspendisse ut eros neque. Sed fermentum erat neque, at sagittis nibh pulvinar blandit. Nulla luctus eleifend venenatis. Nulla facilisi. Fusce tristique, sapien varius pulvinar sagittis, dui elit pharetra ante, a fringilla elit felis eu massa. Duis eget imperdiet arcu. Curabitur ac posuere mauris, eu tempus nisl. Suspendisse potenti. In elit augue, tristique sit amet lorem ut, ultrices auctor dui. Quisque sit amet quam lorem. Maecenas rhoncus congue placerat. Morbi molestie leo nibh, venenatis adipiscing enim dignissim ac. Donec a pulvinar lectus, id tincidunt massa. Phasellus at dui eget nisl posuere scelerisque.';
-$GLOBALS[ 'loremShort' ] =  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis tempor nisl, et condimentum sem adipiscing ac. Suspendisse ut eros neque. Sed fermentum erat neque.';
+/**
+* Test if there is any content to return and if nto use Lorem Ipsums
+*
+* @author Josh Pollock
+* @param string $want Text you want to return.
+* @param bool $short Get short or long place holder text as fallback. Default = true which gives short.
+*/
+if ( ! function_exists( 'jp_or_ipsums' ) ) :
+function jp_or_ipsums($want, $short = true) {
+	//put some genuine Lorem Ispums into some vars
+	$loremLong =  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis tempor nisl, et condimentum sem adipiscing ac. Suspendisse ut eros neque. Sed fermentum erat neque, at sagittis nibh pulvinar blandit. Nulla luctus eleifend venenatis. Nulla facilisi. Fusce tristique, sapien varius pulvinar sagittis, dui elit pharetra ante, a fringilla elit felis eu massa. Duis eget imperdiet arcu. Curabitur ac posuere mauris, eu tempus nisl. Suspendisse potenti. In elit augue, tristique sit amet lorem ut, ultrices auctor dui. Quisque sit amet quam lorem. Maecenas rhoncus congue placerat. Morbi molestie leo nibh, venenatis adipiscing enim dignissim ac. Donec a pulvinar lectus, id tincidunt massa. Phasellus at dui eget nisl posuere scelerisque.';
+	$loremShort =  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis tempor nisl, et condimentum sem adipiscing ac. Suspendisse ut eros neque. Sed fermentum erat neque.';
+	//prepare to return long or short lorem ipsum
+	if ( $short != true ) {
+		$get = $loremLong;
+	}
+	else {
+		$get = $loremShort;
+	}
+	//Decide what to return based on if $want is empty or  equals ''
+	if ( ! empty($want) || $want != '' ) {
+		//you get what you wanted
+		return $want;
+	}
+	else {
+		//you get Lorem Ipsum!
+		return $get;
+	}
+}
+endif; // ! jp_or_ipsums exists
 ?>

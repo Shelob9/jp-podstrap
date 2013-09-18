@@ -46,10 +46,12 @@ get_header(); ?>
 				while ( $features->fetch() ) { 
 					//put ID in a var to be used in get_permalink
 					$id = $features->field('ID');
+					//set $short_title to the short description or some place holder text.
+					$short_desc = jp_or_ipsums(	$features->display('short_desc') );
 					?>
 					<div class="span4">
 						<h2><?php _e($features->display('short_title'), $domain); ?></h2>
-						<p><?php _e($features->display('short_desc'), $domain); ?> </p>
+						<p><?php _e( $short_desc, $domain); ?> </p>
 						<p><a class="btn" href="<?php echo esc_url(get_permalink( $id) ); ?>">View details &raquo;</a></p>
 					</div>
 				<?php 
