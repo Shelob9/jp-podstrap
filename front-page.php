@@ -15,14 +15,21 @@ get_header(); ?>
 	<?php tha_content_before(); ?>
 	<div id="content" role="main">
 		<?php tha_content_top(); ?>
-		
 		<?php
 			/**TOP OF PAGE**/
 			//Get the theme_options pod object
 			$top = pods('theme_options');
 			//set up vars for jumbotron
+			//get the tagline
 			$tagline = $top->display('front_page_tagline');
-			$text = $top->display('front_page_text');
+			//if it's not set use site tagline instead.
+			if ( $tagline == '' ) {
+				$tagline = get_bloginfo( 'description' );
+			}
+			//get text for jumbotron
+			$front_text = $top->display('front_page_text');
+			//replace with place holder text if there isn't any
+			$text = jp_or_ipsums($front_text);
 			$cta = true;
 			$link = 'http://google.com';
 			//Do the jumbotron
@@ -147,4 +154,4 @@ function ht_front_style() { ?>
       }
     </style>
 <?php }
-add_action('wp_head', 'front_style');
+//add_action('wp_head', 'front_style');
