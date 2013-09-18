@@ -214,4 +214,29 @@ function jp_or_ipsums($want, $short = true) {
 	}
 }
 endif; // ! jp_or_ipsums exists
+
+/**
+* Loop for feature and sub_feature archive pages
+*
+* @author Josh Pollock
+*/
+if ( ! function_exists( 'jp_feature_archive_loop' ) ) :
+function jp_feature_archive_loop() {
+	//query for both features and sub_features toghether
+	$args = array(
+				'post_type' => array( 'feature', 'sub_feature' ),
+				'posts_per_page' => 3
+		);
+	$query = new WP_Query( $args );
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post();
+			get_template_part( '/partials/content', get_post_format() );
+		} //endwhile
+		the_bootstrap_content_nav();
+		wp_reset_postdata();
+	} //endif
+}
+endif; // ! jp_feature_archive_loop exists
+
 ?>
