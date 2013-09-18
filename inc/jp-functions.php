@@ -15,7 +15,7 @@ if ( ! function_exists('jp_jumbotron') ) :
 function jp_jumbotron($tagline, $text, $domain, $cta = false, $link = '', $ctaText = "Call To Action") { ?>
 	<!-- Jumbotron -->
 	<div class="jumbotron">
-		<h1><?php esc_attr_e($tagline, $domain); ?></h1>
+		<h2><?php esc_attr_e($tagline, $domain); ?></h2>
 		<p class="lead"><?php _e($text, $domain); ?></p>
 		<?php if ($cta != false) {
 			//esc cta link into a var
