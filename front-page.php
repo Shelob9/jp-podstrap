@@ -39,7 +39,7 @@ get_header(); ?>
 		?>
 
       <!-- Example row-fluid of columns -->
-      <div class="row-fluid-fluid">
+      <div class="row-fluid">
       
       	<?php 
 			if ( 0 < $features->total() ) { 

@@ -29,7 +29,7 @@ get_header(); ?>
 			//Do the jumbotron
 			jp_jumbotron($tag, $text, $domain);
 			?>
-				<div class="row-fluid-fluid">
+				<div class="row-fluid">
 					<div class="span12">
 						<?php the_content(); ?>
 					</div>
