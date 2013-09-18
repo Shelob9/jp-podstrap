@@ -69,7 +69,6 @@ function jp_feature_submenu( $fPodId, $domain ) {
 }
 endif; // ! jp_feature_submenu exists
 
-
 /**
 * Add JS and CSS for this
 *
@@ -90,7 +89,7 @@ endif; // ! jp_scripts_styles exists
 */
 if ( ! function_exists( 'jp_jumbostretch' ) ) :
 function jp_jumbostretch() {
-	//first test this is the fornt page or a feature or sub_feature so we have pods to pick from
+	//First test if this is the front page or a feature or sub_feature so we have pods to pick from
 	if ( is_front_page() || 'feature' == get_post_type() || 'sub_feature' == get_post_type() ) {
 		if ( is_front_page() ) {
 			//for front page get theme option pod
@@ -100,10 +99,10 @@ function jp_jumbostretch() {
 			//for other pages get from current pod
 			$pod = pods();
 		}
-			//get the image field and turn it into ID then source URL
-			$img = $pod->field( 'top_bg' );
-			$img_id = $img['ID'];
-			$img_src = wp_get_attachment_url( $img_id );
+		//get the image field and turn it into ID then source URL
+		$img = $pod->field( 'top_bg' );
+		$img_id = $img['ID'];
+		$img_src = wp_get_attachment_url( $img_id );
 		//output the script into the footer
 		echo '<script>';
 		echo 'jQuery(".jumbotron").backstretch("'.$img_src.'");';
@@ -120,7 +119,7 @@ endif; // ! jp_jumbostretch exists
 */
 if ( ! function_exists ( 'jp_dynamic_styles') ) :
 function jp_dynamic_styles() {
-	//first test this is the fornt page or a feature or sub_feature so we have pods to pick from
+	//First test if this is the fornt page or a feature or sub_feature so we have pods to pick from
 	if ( is_front_page() || 'feature' == get_post_type() || 'sub_feature' == get_post_type() ) {
 		$pod = pods();
 		$title = $pod->field( 'top_title_color' );
@@ -141,7 +140,6 @@ endif; // ! jp_dynamic_styles exists
 *
 * @author Josh Pollock
 * @param string $domain text translation domain
-*
 */
 if ( ! function_exists ( 'jp_related_features' ) ) :
 function jp_related_features($domain) {
