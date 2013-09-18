@@ -36,8 +36,7 @@ get_header(); ?>
 			 ); 
 			//get the main features and put them in $features array
 			$features = pods('feature', $params);
-			
-	?>
+		?>
 
       <!-- Example row of columns -->
       <div class="row-fluid">
