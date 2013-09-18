@@ -7,10 +7,10 @@
  * @package		The Bootstrap
  * @since		1.0.0 - 05.02.2012
  */
-
+$domain = 'ht';
 get_header(); ?>
 
-<section id="primary" class="span8">
+<section id="primary" class="span12">
 	
 	<?php tha_content_before(); ?>
 	<div id="content" role="main">
@@ -18,15 +18,49 @@ get_header(); ?>
 
 		while ( have_posts() ) {
 			the_post();
-			get_template_part( '/partials/content', 'single' );
-			comments_template();
-		} ?>
-		
-		<nav id="nav-single" class="pager">
-			<h3 class="assistive-text"><?php _e( 'Post navigation', 'the-bootstrap' ); ?></h3>
-			<span class="next"><?php next_post_link( '%link', sprintf( '%1$s <span class="meta-nav">&rarr;</span>', __( 'Next Post', 'the-bootstrap' ) ) ); ?></span>
-			<span class="previous"><?php previous_post_link( '%link', sprintf( '<span class="meta-nav">&larr;</span> %1$s', __( 'Previous Post', 'the-bootstrap' ) ) ); ?></span>
-		</nav><!-- #nav-single -->
+			/**SETUP PODS OBJECT**/
+			//Not specifying a specific feature so WP will use current feature.
+			$feature = pods();
+			/**TOP OF PAGE**/
+			//set up vars for jumbotron
+			$tag = get_the_title();
+			//$text = $feature->display('short_desc');
+			$text = get_the_content();
+			//Do the jumbotron
+			jp_jumbotron($tag, $text, $domain);
+			
+			/**SUBFEATURE SECTION**/
+			//Put the sub features in an array
+			$subFeatures = $feature->field('sub_features');
+			//loop through them creating links to their own pages
+			foreach ($subFeatures as $subFeature) { 
+				//get id for sub features page and put in $id
+				$id = $subFeature['ID'];
+				//get the short description from sub feature
+				$short_desc = get_post_meta( $id, 'short_desc', true );
+				//get the icon field meta
+				$icon = get_post_meta( $id, 'icon', true );
+				//get the ID for the icon
+				$icon_id = $icon['ID'];
+			?>
+				<div class="row-fluid well well-small">
+					<div class="span3">
+						<?php  echo wp_get_attachment_image( $icon_id, 'thumbnail' ); ?>
+					</div>
+					<div class="span9">
+						<a href="<?php echo esc_url( get_permalink($id) ); ?>">
+							<h4><?php _e( get_the_title($id), $domain ); ?></h4>
+						</a>
+   						<P><?php _e( $short_desc, $domain ); ?></p>
+						<div class="btn pull-right">
+							<a href="<?php echo esc_url( get_permalink($id) ); ?>">
+								<?php _e( 'Learn More', $domain ); ?>
+							</a>
+						</div>
+					</div>
+				</div>
+			<?php   } //end of foreach
+		} //end while have_posts ?>
 		
 		<?php tha_content_bottom(); ?>
 	</div><!-- #content -->
@@ -34,7 +68,6 @@ get_header(); ?>
 </section><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
 
 
