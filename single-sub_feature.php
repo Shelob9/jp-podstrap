@@ -25,9 +25,7 @@ get_header(); ?>
 			//set up vars for jumbotron
 			$tag = get_the_title();
 			//get the short description from sub feature
-			$short_desc = get_post_meta( get_the_id(), 'short_desc', true );
-			//display submenu
-			jp_feature_submenu( $feature->pod_id, $domain );
+			$text = get_post_meta( get_the_id(), 'short_desc', true );
 			//Do the jumbotron
 			jp_jumbotron($tag, $text, $domain);
 			?>
@@ -38,7 +36,7 @@ get_header(); ?>
 				</div>
 			
 			<?php } //end while have_posts
-		
+			jp_related_features($domain);
 			tha_content_bottom(); ?>
 		</div><!-- #content -->
 	<?php tha_content_after(); ?>
