@@ -8,8 +8,6 @@
  * @since		1.0.0 - 05.02.2012
  */
 $domain = 'ht';
-$GLOBALS[ 'loremShort' ];
-$GLOBALS[ 'loremLong' ];
 get_header(); ?>
 
 <section id="primary" class="span12">
