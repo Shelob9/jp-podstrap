@@ -8,6 +8,8 @@
  * @since		1.0.0 - 05.02.2012
  */
 $domain = 'ht';
+$GLOBALS[ 'loremShort' ];
+$GLOBALS[ 'loremLong' ];
 get_header(); ?>
 
 <section id="primary" class="span12">
@@ -34,16 +36,17 @@ get_header(); ?>
 			/**SUBFEATURE SECTION**/
 			//Put the sub features in an array
 			$subFeatures = $feature->field('sub_features');
-			//loop through them creating links to their own pages
-			foreach ($subFeatures as $subFeature) { 
-				//get id for sub features page and put in $id
-				$id = $subFeature['ID'];
-				//get the short description from sub feature
-				$short_desc = get_post_meta( $id, 'short_desc', true );
-				//get the icon field meta
-				$icon = get_post_meta( $id, 'icon', true );
-				//get the ID for the icon
-				$icon_id = $icon['ID'];
+			//loop through them creating links to their own pages if there is anything to loop through
+			if ( ! empty( $subFeatures ) ) {
+					foreach ($subFeatures as $subFeature) { 
+						//get id for sub features page and put in $id
+						$id = $subFeature['ID'];
+						//get the short description from sub feature
+						$short_desc = get_post_meta( $id, 'short_desc', true );
+						//get the icon field meta
+						$icon = get_post_meta( $id, 'icon', true );
+						//get the ID for the icon
+						$icon_id = $icon['ID'];
 			?>
 				<div class="row-fluid well well-small">
 					<div class="span2">
@@ -62,6 +65,8 @@ get_header(); ?>
 					</div>
 				</div>
 			<?php   } //end of foreach
+				} //endif
+			
 		} //end while have_posts 
 		jp_related_features($domain);
 		tha_content_bottom(); ?>

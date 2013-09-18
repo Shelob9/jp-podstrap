@@ -50,17 +50,20 @@ function jp_feature_submenu( $fPodId, $domain ) {
 		<?php 
 			//Put the sub features in an array
 			$subFeatures = $feature->field('sub_features');
-			foreach ($subFeatures as $subFeature) {
-				//get id for sub features page and put in $id
-				$id = $subFeature['ID'];
-				//get the short title from sub feature
-				$short_title = get_post_meta( $id, 'short_title', true );
-				echo '<li ><a href="';
-				esc_url( get_permalink( $id ) );
-				echo '">';
-				_e( $short_title, $domain );
-				echo '</a></li>';
-			}
+			//run a loop to generate menu items, if there is anything to loop through
+			if ( ! empty( $subFeatures ) ) { 
+				foreach ($subFeatures as $subFeature) {
+					//get id for sub features page and put in $id
+					$id = $subFeature['ID'];
+					//get the short title from sub feature
+					$short_title = get_post_meta( $id, 'short_title', true );
+					echo '<li ><a href="';
+					esc_url( get_permalink( $id ) );
+					echo '">';
+					_e( $short_title, $domain );
+					echo '</a></li>';
+				} //end foreach
+			} //endif
 		?>
 			</ul>
 		</div>
@@ -147,34 +150,40 @@ function jp_related_features($domain) {
 	if ( 'feature' == get_post_type() || 'sub_feature' == get_post_type() ) {
 		//get the feature/ sub_feature's feature categories
 		$terms = get_the_terms( get_the_id(), 'feature_cat' );
-		//get the slug foreach
-		$cats = array();
-		foreach ( $terms as $term ) {
-			$cats = $term->slug;
-		}
-		//query for posts in the same feature category(s)
-		$args = array(
-			'tax_query' => array(
-				'relation' => 'AND',
-				array(
-					'taxonomy' => 'feature_cat',
-					'field' => 'slug',
-					'terms' => array( $cats ),
+		//test if there are any terms if so continue, if not then skip this
+		if ( ! empty( $terms ) ) {
+			//get the slug foreach and put in $cats array to be fed to WP_Query
+			$cats = array();
+			foreach ( $terms as $term ) {
+				$cats = $term->slug;
+			}
+			//query for posts in the same feature category(s)
+			$args = array(
+				'tax_query' => array(
+					'relation' => 'AND',
+					array(
+						'taxonomy' => 'feature_cat',
+						'field' => 'slug',
+						'terms' => array( $cats ),
+					)
 				)
-			)
-		);
-		$query = new WP_Query( $args );
+			);
+			$query = new WP_Query( $args );
 		
-		//wrap output in a well
-		echo '<div class="well well-small">';
-		esc_attr_e( 'Related Features:&nbsp;', $domain );
-		//Show the titles of queried posts as links
-		while ( $query->have_posts() ) : $query->the_post();
-			the_title( '<p class="feature-group pull-left"><a href="' . get_permalink() .'" title="' . sprintf( esc_attr__( 'Permalink to %s', 'the-bootstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a>&nbsp;&nbsp;</p>');
-		endwhile; //have posts
-		wp_reset_postdata();
-		echo "</div>";
-	} //if is feature/Sub_feature
+			//wrap output in a well
+			echo '<div class="well well-small">';
+			esc_attr_e( 'Related Features:&nbsp;', $domain );
+			//Show the titles of queried posts as links
+			while ( $query->have_posts() ) : $query->the_post();
+				the_title( '<p class="feature-group pull-left"><a href="' . get_permalink() .'" title="' . sprintf( esc_attr__( 'Permalink to %s', 'the-bootstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a>&nbsp;&nbsp;</p>');
+			endwhile; //have posts
+			wp_reset_postdata();
+			echo "</div>";
+		} //emdif we have terms
+	} //endif is feature/Sub_feature
 }
 endif; // ! jp_related_features exists
+
+$GLOBALS[ 'loremLong' ] =  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis tempor nisl, et condimentum sem adipiscing ac. Suspendisse ut eros neque. Sed fermentum erat neque, at sagittis nibh pulvinar blandit. Nulla luctus eleifend venenatis. Nulla facilisi. Fusce tristique, sapien varius pulvinar sagittis, dui elit pharetra ante, a fringilla elit felis eu massa. Duis eget imperdiet arcu. Curabitur ac posuere mauris, eu tempus nisl. Suspendisse potenti. In elit augue, tristique sit amet lorem ut, ultrices auctor dui. Quisque sit amet quam lorem. Maecenas rhoncus congue placerat. Morbi molestie leo nibh, venenatis adipiscing enim dignissim ac. Donec a pulvinar lectus, id tincidunt massa. Phasellus at dui eget nisl posuere scelerisque.';
+$GLOBALS[ 'loremShort' ] =  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis tempor nisl, et condimentum sem adipiscing ac. Suspendisse ut eros neque. Sed fermentum erat neque.';
 ?>
