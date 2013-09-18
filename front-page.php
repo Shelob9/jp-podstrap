@@ -67,7 +67,28 @@ get_header(); ?>
 		?>
         
       </div>
-		<?php tha_content_bottom(); ?>
+		<?php
+			/**Get fields for video**/
+			//get the video field as array $video
+			$video = $top->field('front_page_video');
+			//get video ID and mimi type from that array
+			$video_mime = $video['post_mime_type'];
+			$video_id = $video['ID'];
+			//get video source using its ID
+			$video_src = wp_get_attachment_url( $video_id);
+			//get title and description for video
+			$video_title = $top->field( 'video_title');
+			$video_desc = $top->field( 'video_desc' );
+		?>
+		<div id="front-page-video">
+			<h3 class="video-title"><?php _e( $video_title, $domain ); ?></h3>
+			<video controls>
+				<source src="<?php echo $video_src?>" type="<?php echo $video_mime; ?>">
+				Sorry your browser does not support HTML5 video.
+			</video>
+			<p class="video-desc"><?php _e( $video_desc, $domain ); ?></p>			
+		</div>
+	<?php tha_content_bottom(); ?>
 	</div><!-- #content -->
 	<?php tha_content_after(); ?>
 </section><!-- #primary -->
