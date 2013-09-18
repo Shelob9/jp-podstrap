@@ -38,8 +38,8 @@ get_header(); ?>
 			$features = pods('feature', $params);
 		?>
 
-      <!-- Example row of columns -->
-      <div class="row-fluid">
+      <!-- Example row-fluid of columns -->
+      <div class="row-fluid-fluid">
       
       	<?php 
 			if ( 0 < $features->total() ) { 

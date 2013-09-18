@@ -27,7 +27,7 @@ tha_entry_before(); ?>
 	</header><!-- .entry-header -->
 
 	
-	<div class="entry-content row">
+	<div class="entry-content row-fluid">
 		<?php
 		$the_bootstrap_images = get_children( array(
 			'post_parent'		=>	$post->ID,

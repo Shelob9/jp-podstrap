@@ -25,7 +25,7 @@
 	
 	<body <?php body_class(); ?>>
 		<div class="container">
-			<div id="page" class="hfeed row">
+			<div id="page" class="hfeed row-fluid">
 				<?php tha_header_before(); ?>
 				<header id="branding" role="banner" class="span12">
 					<?php tha_header_top();

@@ -563,7 +563,7 @@ add_action( 'comment_form_comments_closed', 'the_bootstrap_comments_closed' );
  */
 function the_bootstrap_comment_form_defaults( $defaults ) {
 	return wp_parse_args( array(
-		'comment_field'			=>	'<div class="comment-form-comment control-group"><label class="control-label" for="comment">' . _x( 'Comment', 'noun', 'the-bootstrap' ) . '</label><div class="controls"><textarea class="span7" id="comment" name="comment" rows="8" aria-required="true"></textarea></div></div>',
+		'comment_field'			=>	'<div class="comment-form-comment control-group"><label class="control-label" for="comment">' . _x( 'Comment', 'noun', 'the-bootstrap' ) . '</label><div class="controls"><textarea class="span7" id="comment" name="comment" row-fluids="8" aria-required="true"></textarea></div></div>',
 		'comment_notes_before'	=>	'',
 		'comment_notes_after'	=>	'<div class="form-allowed-tags control-group"><label class="control-label">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s', 'the-bootstrap' ), '</label><div class="controls"><pre>' . allowed_tags() . '</pre></div>' ) . '</div>
 									 <div class="form-actions">',
@@ -599,7 +599,7 @@ function the_bootstrap_comment( $comment, $args, $depth ) {
 	if ( 'pingback' == $comment->comment_type OR 'trackback' == $comment->comment_type ) : ?>
 	
 		<li id="li-comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
-			<p class="row">
+			<p class="row-fluid">
 				<strong class="ping-label span1"><?php _e( 'Pingback:', 'the-bootstrap' ); ?></strong>
 				<span class="span7"><?php comment_author_link(); edit_comment_link( __( 'Edit', 'the-bootstrap' ), '<span class="sep">&nbsp;</span><span class="edit-link label">', '</span>' ); ?></span>
 			</p>
@@ -609,7 +609,7 @@ function the_bootstrap_comment( $comment, $args, $depth ) {
 		$span	=	7 - $offset; ?>
 		
 		<li  id="li-comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
-			<article id="comment-<?php comment_ID(); ?>" class="comment row">
+			<article id="comment-<?php comment_ID(); ?>" class="comment row-fluid">
 				<div class="comment-author-avatar span1<?php if ($offset) echo " offset{$offset}"; ?>">
 					<?php echo get_avatar( $comment, 70 ); ?>
 				</div>
