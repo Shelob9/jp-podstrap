@@ -46,10 +46,10 @@ get_header(); ?>
 				$icon_id = $icon['ID'];
 			?>
 				<div class="row-fluid well well-small">
-					<div class="span3">
+					<div class="span2">
 						<?php  echo wp_get_attachment_image( $icon_id, 'thumbnail' ); ?>
 					</div>
-					<div class="span9">
+					<div class="span10">
 						<a href="<?php echo esc_url( get_permalink($id) ); ?>">
 							<h4><?php _e( get_the_title($id), $domain ); ?></h4>
 						</a>
