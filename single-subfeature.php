@@ -24,48 +24,23 @@ get_header(); ?>
 			/**TOP OF PAGE**/
 			//set up vars for jumbotron
 			$tag = get_the_title();
-			//$text = $feature->display('short_desc');
-			$text = get_the_content();
+			//get the short description from sub feature
+			short_desc = get_post_meta( get_the_id(), 'short_desc', true );
 			//display submenu
 			jp_feature_submenu( $feature->pod_id, $domain );
 			//Do the jumbotron
 			jp_jumbotron($tag, $text, $domain);
- 			
-			/**SUBFEATURE SECTION**/
-			//Put the sub features in an array
-			$subFeatures = $feature->field('sub_features');
-			//loop through them creating links to their own pages
-			foreach ($subFeatures as $subFeature) { 
-				//get id for sub features page and put in $id
-				$id = $subFeature['ID'];
-				//get the short description from sub feature
-				$short_desc = get_post_meta( $id, 'short_desc', true );
-				//get the icon field meta
-				$icon = get_post_meta( $id, 'icon', true );
-				//get the ID for the icon
-				$icon_id = $icon['ID'];
 			?>
-				<div class="row-fluid well well-small">
-					<div class="span3">
-						<?php  echo wp_get_attachment_image( $icon_id, 'thumbnail' ); ?>
-					</div>
-					<div class="span9">
-						<a href="<?php echo esc_url( get_permalink($id) ); ?>">
-							<h4><?php _e( get_the_title($id), $domain ); ?></h4>
-						</a>
-   						<P><?php _e( $short_desc, $domain ); ?></p>
-						<div class="btn pull-right">
-							<a href="<?php echo esc_url( get_permalink($id) ); ?>">
-								<?php _e( 'Learn More', $domain ); ?>
-							</a>
-						</div>
+				<div class="row-fluid">
+					<div class="span12">
+						<?php the_content(); ?>
 					</div>
 				</div>
-			<?php   } //end of foreach
-		} //end while have_posts ?>
+			
+			<?php } //end while have_posts
 		
-		<?php tha_content_bottom(); ?>
-	</div><!-- #content -->
+			tha_content_bottom(); ?>
+		</div><!-- #content -->
 	<?php tha_content_after(); ?>
 </section><!-- #primary -->
 
