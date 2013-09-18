@@ -62,9 +62,9 @@ get_header(); ?>
 					</div>
 				</div>
 			<?php   } //end of foreach
-		} //end while have_posts ?>
-		
-		<?php tha_content_bottom(); ?>
+		} //end while have_posts 
+		jp_related_features($domain);
+		tha_content_bottom(); ?>
 	</div><!-- #content -->
 	<?php tha_content_after(); ?>
 </section><!-- #primary -->
