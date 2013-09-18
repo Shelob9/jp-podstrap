@@ -239,4 +239,18 @@ function jp_feature_archive_loop() {
 }
 endif; // ! jp_feature_archive_loop exists
 
+/**
+* Don't return the title in loop on front-page, since it would look very bad
+*
+* @author Josh Pollock
+*/
+if ( ! function_exists( 'jp_no_title_front_loop' ) ) :
+function jp_no_title_front_loop($title, $id) {
+    if ( is_front_page() ) {
+        return '';
+    }
+    return $title;
+}
+add_filter('the_title', 'jp_no_title_front_loop', 10, 2);
+endif; // ! jp_no_title_front_loop exists
 ?>
