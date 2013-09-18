@@ -27,7 +27,7 @@ get_header(); ?>
 			//$text = $feature->display('short_desc');
 			$text = get_the_content();
 			//display submenu
-			jp_feature_submenu( $feature, $domain );
+			jp_feature_submenu( $feature->pod_id, $domain );
 			//Do the jumbotron
 			jp_jumbotron($tag, $text, $domain);
  			
