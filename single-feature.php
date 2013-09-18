@@ -26,9 +26,11 @@ get_header(); ?>
 			$tag = get_the_title();
 			//$text = $feature->display('short_desc');
 			$text = get_the_content();
+			//display submenu
+			jp_feature_submenu( $feature, $domain );
 			//Do the jumbotron
 			jp_jumbotron($tag, $text, $domain);
-			
+ 			
 			/**SUBFEATURE SECTION**/
 			//Put the sub features in an array
 			$subFeatures = $feature->field('sub_features');
