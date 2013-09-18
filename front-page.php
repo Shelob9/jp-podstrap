@@ -18,8 +18,8 @@ get_header(); ?>
 		
 		<?php
 			/**TOP OF PAGE**/
-			//Get the marketting_settings pod object
-			$top = pods('marketing_settings');
+			//Get the theme_options pod object
+			$top = pods('theme_options');
 			//set up vars for jumbotron
 			$tagline = $top->display('front_page_tagline');
 			$text = $top->display('front_page_text');

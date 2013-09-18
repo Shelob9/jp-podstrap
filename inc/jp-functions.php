@@ -91,7 +91,7 @@ endif; // ! jp_scripts_styles exists
 if ( ! function_exists( 'jp_jumbostretch' ) ) :
 function jp_jumbostretch() {
 	//first test this is the fornt page or a feature or sub_feature so we have pods to pick from
-	if ( is_front_page() || 'feature' == get_post_type() || 'sub_feature' == get_post_type ) {
+	if ( is_front_page() || 'feature' == get_post_type() || 'sub_feature' == get_post_type() ) {
 		if ( is_front_page() ) {
 			//for front page get theme option pod
 			$pod = pods('theme_options');
@@ -121,7 +121,7 @@ endif; // ! jp_jumbostretch exists
 if ( ! function_exists ( 'jp_dynamic_styles') ) :
 function jp_dynamic_styles() {
 	//first test this is the fornt page or a feature or sub_feature so we have pods to pick from
-	if ( is_front_page() || 'feature' == get_post_type() || 'sub_feature' == get_post_type ) {
+	if ( is_front_page() || 'feature' == get_post_type() || 'sub_feature' == get_post_type() ) {
 		$pod = pods();
 		$title = $pod->field( 'top_title_color' );
 		$text = $pod->field( 'top_text_color' );
