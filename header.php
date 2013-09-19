@@ -6,6 +6,8 @@
  * @author		Konstantin Obenland
  * @package		The Bootstrap
  * @since		1.0 - 05.02.2012
+ *
+ * @author Josh Pollock
  */
 
 ?>

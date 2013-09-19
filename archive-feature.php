@@ -1,16 +1,14 @@
 <?php
-/** archive.php
+/** archive-feature.php
  *
  * The template for displaying Archive pages.
  *
- * Used to display archive-type pages if nothing more specific matches a query.
- * For example, puts together date-based pages if no date.php file exists.
+ * Used to display archive-type pages for "Feature" CPT
+ * archive-feature.php and archive sub_feature.php are intentionally identical and should produce identical output.
  *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ * Forked from the-bootstrap/archive.php
  *
- * @author		Konstantin Obenland
- * @package		The Bootstrap
- * @since		1.0.0 - 07.02.2012
+ * @author Josh Pollock
  */
 
 get_header(); ?>
@@ -42,5 +40,5 @@ get_header(); ?>
 get_footer();
 
 
-/* End of file archive.php */
-/* Location: ./wp-content/themes/the-bootstrap/archive.php */
+/* End of file archive-feature.php */
+/* Location: ./wp-content/themes/the-bootstrap/archive-feature.php */

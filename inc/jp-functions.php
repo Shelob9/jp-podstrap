@@ -1,4 +1,10 @@
 <?php
+/**
+*
+* Functions that Josh added to the theme
+*
+* @author Josh Pollock
+*/
 
 /**
 * Create "Jumbotron at top of pages

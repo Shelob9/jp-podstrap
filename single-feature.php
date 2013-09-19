@@ -1,11 +1,11 @@
 <?php
-/** single.php
+/** single-feature.php
  *
- * The Template for displaying all single posts.
+ * The Template for displaying all single posts of the "Feature" CPT.
  *
- * @author		Konstantin Obenland
- * @package		The Bootstrap
- * @since		1.0.0 - 05.02.2012
+ * Forked from the-bootstrap/single.php
+ *
+ * @author Josh Pollock
  */
 global $domain;
 get_header(); ?>
@@ -94,5 +94,5 @@ get_header(); ?>
 get_footer();
 
 
-/* End of file index.php */
-/* Location: ./wp-content/themes/the-bootstrap/single.php */
+/* End of file single-feature.php */
+/* Location: ./wp-content/themes/the-bootstrap/single-feature.php */

@@ -1,18 +1,13 @@
 <?php
-/** archive.php
+/** archive-sub_feature.php
  *
- * The template for displaying Archive pages.
+ * Used to display archive-type pages for "Sub Feature" CPT
+ * archive-feature.php and archive sub_feature.php are intentionally identical and should produce identical output.
  *
- * Used to display archive-type pages if nothing more specific matches a query.
- * For example, puts together date-based pages if no date.php file exists.
+ * Forked from the-bootstrap/archive.php
  *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @author		Konstantin Obenland
- * @package		The Bootstrap
- * @since		1.0.0 - 07.02.2012
+ * @author Josh Pollock
  */
-
 get_header(); ?>
 
 <section id="primary" class="span12">
@@ -42,5 +37,5 @@ get_header(); ?>
 get_footer();
 
 
-/* End of file archive.php */
-/* Location: ./wp-content/themes/the-bootstrap/archive.php */
+/* End of file archive-sub_feature.php */
+/* Location: ./wp-content/themes/the-bootstrap/archive-sub_feature.php */
