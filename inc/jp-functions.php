@@ -3,7 +3,8 @@
 *
 * Functions that Josh added to the theme
 *
-* @author Josh Pollock
+* @package jp-podstrap * @author Josh Pollock
+* @since 0.1
 */
 
 /**

@@ -5,7 +5,9 @@
  *
  * Forked from the-bootstrap/single.php
  *
+ * @package jp-podstrap
  * @author Josh Pollock
+ * @since 0.1
  */
 global $domain;
 get_header(); ?>

@@ -1,11 +1,13 @@
 <?php
 /** front-page.php
  *
- * Front-Page
+ * Template for displaying static front page.
  *
- * @author 	Konstantin Obenland
- * @package The Bootstrap
- * @since	1.3.0	- 29.04.2012
+ * Forked form /the-bootstrap/_full_width.php
+ *
+ * @package jp-podstrap
+ * @author Josh Pollock
+ * @since 0.1
  */
 //define text Domain
 global $domain
@@ -106,5 +108,5 @@ get_header(); ?>
 get_footer();
 
 
-/* End of file _full_width.php */
-/* Location: ./wp-content/themes/the-bootstrap/_full_width.php */
+/* End of file front-page.php */
+/* Location: ./wp-content/themes/the-bootstrap/front-page.php */

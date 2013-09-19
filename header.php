@@ -7,7 +7,9 @@
  * @package		The Bootstrap
  * @since		1.0 - 05.02.2012
  *
+ * @package jp-podstrap
  * @author Josh Pollock
+ * @since 0.1
  */
 
 ?>

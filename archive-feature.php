@@ -8,7 +8,10 @@
  *
  * Forked from the-bootstrap/archive.php
  *
+ * @package jp-podstrap
  * @author Josh Pollock
+ * @since 0.1
+ * @since 0.1
  */
 
 get_header(); ?>
