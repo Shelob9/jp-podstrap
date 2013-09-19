@@ -64,11 +64,11 @@ get_header(); ?>
 						//get the ID for the icon
 						$icon_id = $icon['ID'];
 			?>
-				<div class="row-fluid well well-small">
+				<div class="row-fluid">
 					<div class="span2">
 						<?php  echo wp_get_attachment_image( $icon_id, 'thumbnail' ); ?>
 					</div>
-					<div class="span10">
+					<div class="span10 well well-small">
 						<a href="<?php echo esc_url( get_permalink($id) ); ?>">
 							<h4><?php _e( get_the_title($id), 'jp-podstrap' ); ?></h4>
 						</a>
@@ -84,7 +84,7 @@ get_header(); ?>
 				} //endif
 			
 		} //end while have_posts 
-		jp_podstrap_related_features('jp-podstrap');
+		jp_podstrap_related_features( $parent = true );
 		tha_content_bottom(); ?>
 	</div><!-- #content -->
 	<?php tha_content_after(); ?>
