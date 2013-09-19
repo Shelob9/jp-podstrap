@@ -9,7 +9,7 @@
  * @author Josh Pollock
  * @since 0.1
  */
-global $domain;
+global $domain;;
 get_header(); ?>
 
 <section id="primary" class="span12">

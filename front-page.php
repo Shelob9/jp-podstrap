@@ -10,7 +10,7 @@
  * @since 0.1
  */
 //define text Domain
-global $domain
+global $domain;
 get_header(); ?>
 
 <section id="primary" class="span12">
