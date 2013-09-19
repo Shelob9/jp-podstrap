@@ -93,7 +93,7 @@ function jp_podstrap_dynamic_styles() {
 		$text = $pod->field( 'top_text_color' );
 	?>
 		<style>
-			.jumbotron h1{color: <?php echo $title; ?>;}
+			.jumbotron h2{color: <?php echo $title; ?>;}
 			.jumbotron p{color: <?php echo $text; ?>;}
 		</style>
 <?php
