@@ -35,7 +35,7 @@ get_header(); ?>
 			$cta = true;
 			$link = 'http://google.com';
 			//Do the jumbotron
-			jp_podstrap_jumbotron($tagline, $text, 'jp-podstrap', $cta, $link);
+			jp_podstrap_jumbotron($tagline, $text, $cta, $link);
 		
 			/**BOTTOM OF PAGE**/
 		  	//setup parameters before getting features pod

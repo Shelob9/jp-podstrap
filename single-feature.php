@@ -41,14 +41,12 @@ get_header(); ?>
 			//check if there is a value for link (ie somewhere for button to take us)
 			if ( $link != false ) {
 				//Do the jumbotron with button
-				jp_podstrap_jumbotron($tag, $text, 'jp-podstrap', $cta= true, $link, $ctaText );
+				jp_podstrap_jumbotron($tag, $text, $cta= true, $link, $ctaText );
 			}
 			else {
 				//Do the jumbotron without button.
 				jp_podstrap_jumbotron($tag, $text, $cta = false );
 			}
-			//display submenu
-			jp_podstrap_feature_submenu( $feature->pod_id, 'jp-podstrap' );
 			
 			
 			/**SUBFEATURE SECTION**/

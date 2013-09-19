@@ -19,7 +19,7 @@
 * @param string ctaText Text for CTA button. Optional.
 */
 if ( ! function_exists('jp_podstrap_jumbotron') ) :
-function jp_podstrap_jumbotron($tagline, $text, 'jp-podstrap', $cta = false, $link = '', $ctaText = "Call To Action") { ?>
+function jp_podstrap_jumbotron($tagline, $text, $cta = false, $link = '', $ctaText = "Call To Action") { ?>
 	<!-- Jumbotron -->
 	<div class="jumbotron">
 		<h2><?php esc_attr_e($tagline, 'jp-podstrap'); ?></h2>
@@ -35,49 +35,6 @@ function jp_podstrap_jumbotron($tagline, $text, 'jp-podstrap', $cta = false, $li
     </div>
 <?php }
 endif; // ! jp_podstrap_jumbotron exists
-
-
-/**
-* Create feature specific submenu
-*
-* @author Josh Pollock
-* @param int $fPodId ID of Pod for feature who's subnav this is
-* @param string 'jp-podstrap' text translation domain
-* $todo Get rid of totally redundant use of pods()
-*/
-if ( ! function_exists( 'jp_podstrap_feature_submenu' ) ) :
-function jp_podstrap_feature_submenu( $fPodId, 'jp-podstrap' ) {
-	//get Pod object for feature
-	$feature = pods();
-	?>
-	<subnav class="navbar">
-  		<div class="navbar-inner pull-right">
-   			<a class="brand" href="#"><?php _e( $feature->field('short_title'), 'jp-podstrap') ; ?></a>
-			<ul class="nav">
-		<?php 
-			//Put the sub features in an array
-			$subFeatures = $feature->field('sub_features');
-			//run a loop to generate menu items, if there is anything to loop through
-			if ( ! empty( $subFeatures ) ) { 
-				foreach ($subFeatures as $subFeature) {
-					//get id for sub features page and put in $id
-					$id = $subFeature['ID'];
-					//get the short title from sub feature
-					$short_title = get_post_meta( $id, 'short_title', true );
-					echo '<li ><a href="';
-					esc_url( get_permalink( $id ) );
-					echo '">';
-					_e( $short_title, 'jp-podstrap' );
-					echo '</a></li>';
-				} //end foreach
-			} //endif
-		?>
-			</ul>
-		</div>
-	</subnav>
-<?php
-}
-endif; // ! jp_podstrap_feature_submenu exists
 
 /**
 * Add JS and CSS for this
@@ -149,10 +106,9 @@ endif; // ! jp_podstrap_dynamic_styles exists
 * Related Features Box
 *
 * @author Josh Pollock
-* @param string 'jp-podstrap' text translation domain
 */
 if ( ! function_exists ( 'jp_podstrap_related_features' ) ) :
-function jp_podstrap_related_features('jp-podstrap') {
+function jp_podstrap_related_features() {
 	//first test if this a feature or sub_feature so we have our taxonomy to work with
 	if ( 'feature' == get_post_type() || 'sub_feature' == get_post_type() ) {
 		//get the feature/ sub_feature's feature categories
