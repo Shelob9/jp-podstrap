@@ -20,11 +20,11 @@ get_header(); ?>
 		<article id="post-0" class="post error404 not-found">
 			<?php tha_entry_top(); ?>
 			<header class="page-header">
-				<h1 class="entry-title"><?php _e( 'This is somewhat embarrassing, isn&rsquo;t it?', 'the-bootstrap' ); ?></h1>
+				<h1 class="entry-title"><?php _e( 'This is somewhat embarrassing, isn&rsquo;t it?', 'jp-podstrap' ); ?></h1>
 			</header><!-- .page-header -->
 
 			<div class="entry-content">
-				<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help.', 'the-bootstrap' ); ?></p>
+				<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help.', 'jp-podstrap' ); ?></p>
 
 				<?php
 				get_search_form();
@@ -32,10 +32,10 @@ get_header(); ?>
 				the_widget( 'WP_Widget_Recent_Posts', array( 'number' => 10 ), array( 'widget_id' => '404' ) );
 				
 				the_widget( 'WP_Widget_Categories', array(
-					'title'	=>	__( 'Most Used Categories', 'the-bootstrap' ),
+					'title'	=>	__( 'Most Used Categories', 'jp-podstrap' ),
 				) );
 				
-				$archive_content = sprintf( _x( 'Try looking in the monthly archives. %1$s', '%1$s: smilie', 'the-bootstrap' ), convert_smilies( ':)' ) );
+				$archive_content = sprintf( _x( 'Try looking in the monthly archives. %1$s', '%1$s: smilie', 'jp-podstrap' ), convert_smilies( ':)' ) );
 				the_widget( 'WP_Widget_Archives', array(
 					'count'		=>	0,
 					'dropdown'	=>	1

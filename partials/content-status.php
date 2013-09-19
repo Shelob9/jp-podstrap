@@ -19,7 +19,7 @@ tha_entry_before(); ?>
 		<div class="thumbnail avatar span1"><?php echo get_avatar( get_the_author_meta( 'email' ), apply_filters( 'the-bootstrap_status_avatar', 70 ) ); ?></div>
 		<div class="offset1">
 			<?php
-			the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'the-bootstrap' ) );
+			the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'jp-podstrap' ) );
 			jp_podstrap_link_pages(); ?>
 		</div>
 	</div><!-- .entry-content -->

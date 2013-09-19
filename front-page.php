@@ -10,7 +10,7 @@
  * @since 0.1
  */
 //define text Domain
-global $domain;
+
 get_header(); ?>
 
 <section id="primary" class="span12">
@@ -35,7 +35,7 @@ get_header(); ?>
 			$cta = true;
 			$link = 'http://google.com';
 			//Do the jumbotron
-			jp_podstrap_jumbotron($tagline, $text, $domain, $cta, $link);
+			jp_podstrap_jumbotron($tagline, $text, 'jp-podstrap', $cta, $link);
 		
 			/**BOTTOM OF PAGE**/
 		  	//setup parameters before getting features pod
@@ -59,8 +59,8 @@ get_header(); ?>
 					$short_desc = jp_podstrap_or_ipsums(	$features->display('short_desc') );
 					?>
 					<div class="span4">
-						<h2><?php _e($features->display('short_title'), $domain); ?></h2>
-						<p><?php _e( $short_desc, $domain); ?> </p>
+						<h2><?php _e($features->display('short_title'), 'jp-podstrap'); ?></h2>
+						<p><?php _e( $short_desc, 'jp-podstrap'); ?> </p>
 						<p><a class="btn" href="<?php echo esc_url(get_permalink( $id) ); ?>">View details &raquo;</a></p>
 					</div>
 				<?php 
@@ -83,12 +83,12 @@ get_header(); ?>
 			$video_desc = $top->field( 'video_desc' );
 		?>
 		<div id="front-page-video">
-			<h3 class="video-title"><?php _e( $video_title, $domain ); ?></h3>
+			<h3 class="video-title"><?php _e( $video_title, 'jp-podstrap' ); ?></h3>
 			<video controls>
 				<source src="<?php echo $video_src?>" type="<?php echo $video_mime; ?>">
 				Sorry your browser does not support HTML5 video.
 			</video>
-			<p class="video-desc"><?php _e( $video_desc, $domain ); ?></p>			
+			<p class="video-desc"><?php _e( $video_desc, 'jp-podstrap' ); ?></p>			
 		</div>
 	<?php 
 		//show post content if there is any

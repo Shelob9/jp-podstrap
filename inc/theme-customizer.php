@@ -25,11 +25,11 @@ function jp_podstrap_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 	
 	$wp_customize->add_section( 'jp_podstrap_theme_layout', array(
-		'title'		=>	__( 'Layout', 'the-bootstrap' ),
+		'title'		=>	__( 'Layout', 'jp-podstrap' ),
 		'priority'	=>	99,
 	) );
 	$wp_customize->add_section( 'jp_podstrap_navbar_options', array(
-			'title'		=>	__( 'Navbar Options', 'the-bootstrap' ),
+			'title'		=>	__( 'Navbar Options', 'jp-podstrap' ),
 			'priority'	=>	101,
 	) );
 	
@@ -44,19 +44,19 @@ function jp_podstrap_customize_register( $wp_customize ) {
 	
 	// Theme Layout
 	$wp_customize->add_control( 'jp_podstrap_theme_layout', array(
-		'label'		=>	__( 'Default Layout', 'the-bootstrap' ),
+		'label'		=>	__( 'Default Layout', 'jp-podstrap' ),
 		'section'	=>	'jp_podstrap_theme_layout',
 		'settings'	=>	'jp_podstrap_theme_options[theme_layout]',
 		'type'		=>	'radio',
 		'choices'	=>	array(
-			'content-sidebar'	=>	__( 'Content on left', 'the-bootstrap' ),
-			'sidebar-content'	=>	__( 'Content on right', 'the-bootstrap' )
+			'content-sidebar'	=>	__( 'Content on left', 'jp-podstrap' ),
+			'sidebar-content'	=>	__( 'Content on right', 'jp-podstrap' )
 		),
 	) );
 	
 	// Sitename in Navbar
 	$wp_customize->add_control( 'jp_podstrap_navbar_site_name', array(
-		'label'		=>	__( 'Add site name to navigation bar.', 'the-bootstrap' ),
+		'label'		=>	__( 'Add site name to navigation bar.', 'jp-podstrap' ),
 		'section'	=>	'jp_podstrap_navbar_options',
 		'settings'	=>	'jp_podstrap_theme_options[navbar_site_name]',
 		'type'		=>	'checkbox',
@@ -64,7 +64,7 @@ function jp_podstrap_customize_register( $wp_customize ) {
 	
 	// Searchform in Navbar
 	$wp_customize->add_control( 'jp_podstrap_navbar_searchform', array(
-		'label'		=>	__( 'Add searchform to navigation bar.', 'the-bootstrap' ),
+		'label'		=>	__( 'Add searchform to navigation bar.', 'jp-podstrap' ),
 		'section'	=>	'jp_podstrap_navbar_options',
 		'settings'	=>	'jp_podstrap_theme_options[navbar_searchform]',
 		'type'		=>	'checkbox',
@@ -72,7 +72,7 @@ function jp_podstrap_customize_register( $wp_customize ) {
 	
 	// Navbar Colors
 	$wp_customize->add_control( 'jp_podstrap_navbar_inverse', array(
-		'label'		=>	__( 'Use inverse color on navigation bar.', 'the-bootstrap' ),
+		'label'		=>	__( 'Use inverse color on navigation bar.', 'jp-podstrap' ),
 		'section'	=>	'jp_podstrap_navbar_options',
 		'settings'	=>	'jp_podstrap_theme_options[navbar_inverse]',
 		'type'		=>	'checkbox',
@@ -80,14 +80,14 @@ function jp_podstrap_customize_register( $wp_customize ) {
 	
 	// Navbar Position
 	$wp_customize->add_control( 'jp_podstrap_navbar_position', array(
-		'label'		=>	__( 'Navigation Bar Position', 'the-bootstrap' ),
+		'label'		=>	__( 'Navigation Bar Position', 'jp-podstrap' ),
 		'section'	=>	'jp_podstrap_navbar_options',
 		'settings'	=>	'jp_podstrap_theme_options[navbar_position]',
 		'type'		=>	'radio',
 		'choices'	=>	array(
-			'static'				=>	__( 'Static.', 'the-bootstrap' ),
-			'navbar-fixed-top'		=>	__( 'Fixed on top.', 'the-bootstrap' ),
-			'navbar-fixed-bottom'	=>	__( 'Fixed at bottom.', 'the-bootstrap' ),
+			'static'				=>	__( 'Static.', 'jp-podstrap' ),
+			'navbar-fixed-top'		=>	__( 'Fixed on top.', 'jp-podstrap' ),
+			'navbar-fixed-bottom'	=>	__( 'Fixed at bottom.', 'jp-podstrap' ),
 		),
 	) );
 }

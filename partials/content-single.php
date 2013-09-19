@@ -26,13 +26,13 @@ tha_entry_before(); ?>
 
 	<footer class="entry-footer">
 		<?php
-		$categories_list = get_the_category_list( _x( ', ', 'used between list items, there is a space after the comma', 'the-bootstrap' ) );
-		$tags_list = get_the_tag_list( '', _x( ', ', 'used between list items, there is a space after the comma', 'the-bootstrap' ) );
+		$categories_list = get_the_category_list( _x( ', ', 'used between list items, there is a space after the comma', 'jp-podstrap' ) );
+		$tags_list = get_the_tag_list( '', _x( ', ', 'used between list items, there is a space after the comma', 'jp-podstrap' ) );
 		
 		if ( $categories_list )
-			printf( '<span class="cat-links block">' . __( 'Posted in %1$s.', 'the-bootstrap' ) . '</span>', $categories_list );
+			printf( '<span class="cat-links block">' . __( 'Posted in %1$s.', 'jp-podstrap' ) . '</span>', $categories_list );
 		if ( $tags_list )
-			printf( '<span class="tag-links block">' . __( 'Tagged %1$s.', 'the-bootstrap' ) . '</span>', $tags_list );
+			printf( '<span class="tag-links block">' . __( 'Tagged %1$s.', 'jp-podstrap' ) . '</span>', $tags_list );
 		?>
 	</footer><!-- .entry-footer -->
 	
@@ -42,7 +42,7 @@ tha_entry_before(); ?>
 
 if ( get_the_author_meta( 'description' ) AND is_multi_author() ) : // If a user has filled out their description and this is a multi-author blog, show a bio on their entries ?>
 <aside id="author-info" class="row-fluid">
-	<h2 class="span8"><?php printf( __( 'About %s', 'the-bootstrap' ), get_the_author() ); ?></h2>
+	<h2 class="span8"><?php printf( __( 'About %s', 'jp-podstrap' ), get_the_author() ); ?></h2>
 	<div id="author-avatar" class="span1">
 		<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'jp_podstrap_author_bio_avatar_size', 70 ) ); ?>
 	</div><!-- #author-avatar -->
@@ -50,7 +50,7 @@ if ( get_the_author_meta( 'description' ) AND is_multi_author() ) : // If a user
 		<?php the_author_meta( 'description' ); ?>
 		<div id="author-link">
 			<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
-				<?php printf( __( 'View all posts by %s <span class="meta-nav">&rarr;</span>', 'the-bootstrap' ), get_the_author() ); ?>
+				<?php printf( __( 'View all posts by %s <span class="meta-nav">&rarr;</span>', 'jp-podstrap' ), get_the_author() ); ?>
 			</a>
 		</div><!-- #author-link	-->
 	</div><!-- #author-description -->

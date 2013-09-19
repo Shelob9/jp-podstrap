@@ -14,14 +14,14 @@ tha_entry_before(); ?>
 	<?php tha_entry_top(); ?>
 	
 	<header class="page-header">
-		<h1 class="entry-title"><?php _e( 'Nothing Found', 'the-bootstrap' ); ?></h1>
+		<h1 class="entry-title"><?php _e( 'Nothing Found', 'jp-podstrap' ); ?></h1>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
 		<?php if ( is_search() ): ?>
-		<p><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'the-bootstrap' ); ?></p>
+		<p><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'jp-podstrap' ); ?></p>
 		<?php else: ?>
-		<p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'the-bootstrap' ); ?></p>
+		<p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'jp-podstrap' ); ?></p>
 		<?php get_search_form();
 		endif;?>
 	</div><!-- .entry-content -->

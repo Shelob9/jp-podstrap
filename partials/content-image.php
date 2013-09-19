@@ -17,7 +17,7 @@ tha_entry_before(); ?>
 	
 	<div class="entry-content clearfix">
 		<?php
-		the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'the-bootstrap' ) );
+		the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'jp-podstrap' ) );
 		jp_podstrap_link_pages(); ?>
 	</div><!-- .entry-content -->
 

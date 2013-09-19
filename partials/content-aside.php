@@ -16,7 +16,7 @@ tha_entry_before(); ?>
 	<?php tha_entry_top(); ?>
 	<header class="page-header">
 		<hgroup>
-			<?php the_title( '<h2 class="entry-title"><a href="' . get_permalink() .'" title="' . sprintf( esc_attr__( 'Permalink to %s', 'the-bootstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a></h2>' ); ?>
+			<?php the_title( '<h2 class="entry-title"><a href="' . get_permalink() .'" title="' . sprintf( esc_attr__( 'Permalink to %s', 'jp-podstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a></h2>' ); ?>
 			<h3 class="entry-format"><?php echo get_post_format_string( get_post_format() ); ?></h3>
 		</hgroup>
 	</header><!-- .entry-header -->
@@ -28,7 +28,7 @@ tha_entry_before(); ?>
 	<?php else : ?>
 	<div class="entry-content clearfix">
 		<?php
-		the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'the-bootstrap' ) );
+		the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'jp-podstrap' ) );
 		jp_podstrap_link_pages(); ?>
 	</div><!-- .entry-content -->
 	<?php endif; ?>

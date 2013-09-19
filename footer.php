@@ -21,10 +21,10 @@
 						) );
 						?>
 						<div id="site-generator"<?php echo has_nav_menu('footer-menu') ? ' class="footer-nav-menu"' : ''; ?>>
-							<a	href="<?php echo esc_url( __( 'http://wordpress.org/', 'the-bootstrap' ) ); ?>"
-								title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'the-bootstrap' ); ?>"
+							<a	href="<?php echo esc_url( __( 'http://wordpress.org/', 'jp-podstrap' ) ); ?>"
+								title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'jp-podstrap' ); ?>"
 								target="_blank"
-								rel="generator"><?php printf( _x( 'Proudly powered by %s', 'WordPress', 'the-bootstrap' ), 'WordPress' ); ?></a>
+								rel="generator"><?php printf( _x( 'Proudly powered by %s', 'WordPress', 'jp-podstrap' ), 'WordPress' ); ?></a>
 						</div>
 					</div><!-- #page-footer .well .clearfix -->
 					<?php tha_footer_bottom(); ?>
@@ -32,7 +32,7 @@
 				<?php tha_footer_after(); ?>
 			</div><!-- #page -->
 		</div><!-- .container -->
-	<!-- <?php printf( __( '%d queries. %s seconds.', 'the-bootstrap' ), get_num_queries(), timer_stop(0, 3) ); ?> -->
+	<!-- <?php printf( __( '%d queries. %s seconds.', 'jp-podstrap' ), get_num_queries(), timer_stop(0, 3) ); ?> -->
 	<?php wp_footer(); ?>
 	</body>
 </html>

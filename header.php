@@ -58,9 +58,9 @@
 					<?php endif; // if ( get_header_image() ) ?>
 
 					<nav id="access" role="navigation">
-						<h3 class="assistive-text"><?php _e( 'Main menu', 'the-bootstrap' ); ?></h3>
-						<div class="skip-link"><a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to primary content', 'the-bootstrap' ); ?>"><?php _e( 'Skip to primary content', 'the-bootstrap' ); ?></a></div>
-						<div class="skip-link"><a class="assistive-text" href="#secondary" title="<?php esc_attr_e( 'Skip to secondary content', 'the-bootstrap' ); ?>"><?php _e( 'Skip to secondary content', 'the-bootstrap' ); ?></a></div>
+						<h3 class="assistive-text"><?php _e( 'Main menu', 'jp-podstrap' ); ?></h3>
+						<div class="skip-link"><a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to primary content', 'jp-podstrap' ); ?>"><?php _e( 'Skip to primary content', 'jp-podstrap' ); ?></a></div>
+						<div class="skip-link"><a class="assistive-text" href="#secondary" title="<?php esc_attr_e( 'Skip to secondary content', 'jp-podstrap' ); ?>"><?php _e( 'Skip to secondary content', 'jp-podstrap' ); ?></a></div>
 						<?php if ( has_nav_menu( 'primary' ) OR jp_podstrap_options()->navbar_site_name OR jp_podstrap_options()->navbar_searchform ) : ?>
 						<div <?php jp_podstrap_navbar_class(); ?>>
 							<div class="navbar-inner">

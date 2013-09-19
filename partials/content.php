@@ -16,12 +16,12 @@ tha_entry_before(); ?>
 	<header class="page-header">
 	<?php if ( is_sticky() AND is_home() ) : ?>
 		<hgroup>
-			<?php the_title( '<h1 class="entry-title"><a href="' . get_permalink() . '" title="' . sprintf( esc_attr__( 'Permalink to %s', 'the-bootstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a></h1>' ); ?>
-			<h3 class="entry-format"><?php _e( 'Featured', 'the-bootstrap' ); ?></h3>
+			<?php the_title( '<h1 class="entry-title"><a href="' . get_permalink() . '" title="' . sprintf( esc_attr__( 'Permalink to %s', 'jp-podstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a></h1>' ); ?>
+			<h3 class="entry-format"><?php _e( 'Featured', 'jp-podstrap' ); ?></h3>
 		</hgroup>
 	<?php
 		else :
-			the_title( '<h1 class="entry-title"><a href="' . get_permalink() .'" title="' . sprintf( esc_attr__( 'Permalink to %s', 'the-bootstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a></h1>' );
+			the_title( '<h1 class="entry-title"><a href="' . get_permalink() .'" title="' . sprintf( esc_attr__( 'Permalink to %s', 'jp-podstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a></h1>' );
 		endif;
 		
 		if ( 'post' == get_post_type() ) : ?>
@@ -42,17 +42,17 @@ tha_entry_before(); ?>
 			<?php the_post_thumbnail( 'thumbnail' ); ?>
 		</a>
 		<?php endif;
-		the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'the-bootstrap' ) );
+		the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'jp-podstrap' ) );
 		jp_podstrap_link_pages(); ?>
 	</div><!-- .entry-content -->
 	<?php endif; ?>
 
 	<footer class="entry-meta">
 		<?php
-		$categories_list = get_the_category_list( _x( ', ', 'used between list items, there is a space after the comma', 'the-bootstrap' ) );
+		$categories_list = get_the_category_list( _x( ', ', 'used between list items, there is a space after the comma', 'jp-podstrap' ) );
 
 		if ( 'post' == get_post_type() AND $categories_list ) // Hide category text for pages on Search
-			printf( '<span class="cat-links block">' . __( 'Posted in %1$s.', 'the-bootstrap' ) . '</span>', $categories_list );
+			printf( '<span class="cat-links block">' . __( 'Posted in %1$s.', 'jp-podstrap' ) . '</span>', $categories_list );
 		?>
 	</footer><!-- #entry-meta -->
 	

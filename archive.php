@@ -27,13 +27,13 @@ get_header(); ?>
 				<h1 class="page-title">
 					<?php
 					if ( is_day() ) :
-						printf( __( 'Daily Archives: %s', 'the-bootstrap' ), '<span>' . get_the_date() . '</span>' );
+						printf( __( 'Daily Archives: %s', 'jp-podstrap' ), '<span>' . get_the_date() . '</span>' );
 					elseif ( is_month() ) :
-						printf( __( 'Monthly Archives: %s', 'the-bootstrap' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
+						printf( __( 'Monthly Archives: %s', 'jp-podstrap' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
 					elseif ( is_year() ) :
-						printf( __( 'Yearly Archives: %s', 'the-bootstrap' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
+						printf( __( 'Yearly Archives: %s', 'jp-podstrap' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
 					else :
-						_e( 'Blog Archives', 'the-bootstrap' );
+						_e( 'Blog Archives', 'jp-podstrap' );
 					endif; ?>
 				</h1>
 			</header><!-- .page-header -->

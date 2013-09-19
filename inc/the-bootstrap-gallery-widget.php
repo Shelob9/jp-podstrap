@@ -25,9 +25,9 @@ class jp_podstrap_Gallery_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		
-		parent::__construct( 'the-bootstrap-gallery', __( 'The Bootstrap Gallery Widget', 'the-bootstrap' ), array(
+		parent::__construct( 'the-bootstrap-gallery', __( 'The Bootstrap Gallery Widget', 'jp-podstrap' ), array(
 			'classname'		=>	'the-bootstrap-gallery',
-			'description'	=>	__( 'Displays gallery images of a specified post with the Gallery post format.', 'the-bootstrap' )
+			'description'	=>	__( 'Displays gallery images of a specified post with the Gallery post format.', 'jp-podstrap' )
 		) );
 	}
 
@@ -62,7 +62,7 @@ class jp_podstrap_Gallery_Widget extends WP_Widget {
 		echo   str_replace( 'well ', '', $before_widget );
 		
 		if ( $title = get_the_title( $instance['post_id'] ) )
-			echo $before_title . '<a href="' . get_permalink( $instance['post_id'] ) . '" title="' . sprintf( esc_attr__( 'Permalink to %s', 'the-bootstrap' ), strip_tags( $title ) ) . '" rel="bookmark">' . $title . '</a>' . $after_title;
+			echo $before_title . '<a href="' . get_permalink( $instance['post_id'] ) . '" title="' . sprintf( esc_attr__( 'Permalink to %s', 'jp-podstrap' ), strip_tags( $title ) ) . '" rel="bookmark">' . $title . '</a>' . $after_title;
 		?>
 		<div id="sidebar-gallery-slider" class="carousel slide">
 
@@ -82,8 +82,8 @@ class jp_podstrap_Gallery_Widget extends WP_Widget {
 			</div><!-- .carousel-inner -->
 		
 			<!-- Carousel nav -->
-			<a class="carousel-control left" href="#sidebar-gallery-slider" data-slide="prev"><?php _ex( '&lsaquo;', 'carousel-control', 'the-bootstrap' ); ?></a>
-			<a class="carousel-control right" href="#sidebar-gallery-slider" data-slide="next"><?php _ex( '&rsaquo;', 'carousel-control', 'the-bootstrap' ); ?></a>
+			<a class="carousel-control left" href="#sidebar-gallery-slider" data-slide="prev"><?php _ex( '&lsaquo;', 'carousel-control', 'jp-podstrap' ); ?></a>
+			<a class="carousel-control right" href="#sidebar-gallery-slider" data-slide="next"><?php _ex( '&rsaquo;', 'carousel-control', 'jp-podstrap' ); ?></a>
 		</div><!-- #sidebar-gallery-slider .carousel .slide -->
 		<?php
 		
@@ -145,12 +145,12 @@ class jp_podstrap_Gallery_Widget extends WP_Widget {
 		) );
 		
 		if ( empty( $gallery_posts ) ) {
-			echo '<p class="description">'. sprintf( __( 'No galleries have been created yet. <a href="%s">Create some</a>.', 'the-bootstrap' ), admin_url( 'post-new.php' ) ) . '</p>';
+			echo '<p class="description">'. sprintf( __( 'No galleries have been created yet. <a href="%s">Create some</a>.', 'jp-podstrap' ), admin_url( 'post-new.php' ) ) . '</p>';
 			return;
 		}
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'post_id' ); ?>"><?php _e( 'Select Gallery:', 'the-bootstrap' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'post_id' ); ?>"><?php _e( 'Select Gallery:', 'jp-podstrap' ); ?></label>
 			<select name="<?php echo $this->get_field_name( 'post_id' ); ?>" id="<?php echo $this->get_field_id( 'post_id' ); ?>" class="widefat">
 				<?php foreach ( $gallery_posts as $gallery_post ) {
 					echo '<option value="' . $gallery_post->ID . '"' . selected( $instance['post_id'], $gallery_post->ID ) .'>' . $gallery_post->post_title . '</option>';

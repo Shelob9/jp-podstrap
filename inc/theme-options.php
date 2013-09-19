@@ -19,8 +19,8 @@
  */
 function jp_podstrap_theme_options_add_page() {
 	$theme_page = add_theme_page(
-		__( 'Theme Options', 'the-bootstrap' ),		// Name of page
-		__( 'Theme Options', 'the-bootstrap' ),		// Label in menu
+		__( 'Theme Options', 'jp-podstrap' ),		// Name of page
+		__( 'Theme Options', 'jp-podstrap' ),		// Label in menu
 		'edit_theme_options',						// Capability required
 		'theme_options',							// Menu slug, used to uniquely identify the page
 		'jp_podstrap_theme_options_render_page'	// Function that renders the options page
@@ -76,33 +76,33 @@ function jp_podstrap_theme_options_init() {
 	);
 
 	// Register individual settings fields
-	add_settings_field( 'layout', __( 'Default Layout', 'the-bootstrap' ), 'jp_podstrap_settings_field_layout', 'theme_options', 'general' );
-	add_settings_field( 'navbar', __( 'Navigation Bar', 'the-bootstrap' ), 'jp_podstrap_settings_field_checkbox', 'theme_options', 'general', array(
+	add_settings_field( 'layout', __( 'Default Layout', 'jp-podstrap' ), 'jp_podstrap_settings_field_layout', 'theme_options', 'general' );
+	add_settings_field( 'navbar', __( 'Navigation Bar', 'jp-podstrap' ), 'jp_podstrap_settings_field_checkbox', 'theme_options', 'general', array(
 		(object) array(
 			'name'			=>	'navbar_site_name',
 			'value'			=>	jp_podstrap_options()->navbar_site_name,
-			'description'	=>	__( 'Add site name to navigation bar.', 'the-bootstrap' )
+			'description'	=>	__( 'Add site name to navigation bar.', 'jp-podstrap' )
 		),
 		(object) array(
 			'name'			=>	'navbar_searchform',
 			'value'			=>	jp_podstrap_options()->navbar_searchform,
-			'description'	=>	__( 'Add searchform to navigation bar.', 'the-bootstrap' )
+			'description'	=>	__( 'Add searchform to navigation bar.', 'jp-podstrap' )
 		)
 	) );
-	add_settings_field( 'navbar-position', __( 'Navigation Bar Position', 'the-bootstrap' ), 'jp_podstrap_settings_field_radio', 'theme_options', 'general', array(
+	add_settings_field( 'navbar-position', __( 'Navigation Bar Position', 'jp-podstrap' ), 'jp_podstrap_settings_field_radio', 'theme_options', 'general', array(
 		'name'		=>	'navbar_position',
 		'options'	=>	array(
 			(object) array(
 				'value'			=>	'static',
-				'description'	=>	__( 'Static.', 'the-bootstrap' )
+				'description'	=>	__( 'Static.', 'jp-podstrap' )
 			),
 			(object) array(
 				'value'			=>	'navbar-fixed-top',
-				'description'	=>	__( 'Fixed on top.', 'the-bootstrap' )
+				'description'	=>	__( 'Fixed on top.', 'jp-podstrap' )
 			),
 			(object) array(
 				'value'			=>	'navbar-fixed-bottom',
-				'description'	=>	__( 'Fixed at bottom.', 'the-bootstrap' )
+				'description'	=>	__( 'Fixed at bottom.', 'jp-podstrap' )
 			),
 		)
 	) );
@@ -142,7 +142,7 @@ add_filter( 'option_page_capability_jp_podstrap_options', 'jp_podstrap_option_pa
 function jp_podstrap_admin_bar_menu( $wp_admin_bar ) {
 	if ( current_user_can( 'edit_theme_options' ) AND is_admin_bar_showing() ) {
 		$wp_admin_bar->add_menu( array(
-			'title'		=>	__( 'Theme Options', 'the-bootstrap' ),
+			'title'		=>	__( 'Theme Options', 'jp-podstrap' ),
 			'href'		=>	add_query_arg( array( 'page' => 'theme_options' ), admin_url( 'themes.php' ) ),
 			'parent'	=>	'appearance',
 			'id'		=>	'the-bootstrap-theme-options',
@@ -163,11 +163,11 @@ add_action( 'admin_bar_menu', 'jp_podstrap_admin_bar_menu', 61 ); //Appearance M
 function jp_podstrap_layouts() {
 	$layout_options	=	array(
 		'content-sidebar'	=>	array(
-			'label'		=>	__( 'Content on left', 'the-bootstrap' ),
+			'label'		=>	__( 'Content on left', 'jp-podstrap' ),
 			'thumbnail'	=>	get_template_directory_uri() . '/img/content-sidebar.png',
 		),
 		'sidebar-content'	=>	array(
-			'label'		=>	__( 'Content on right', 'the-bootstrap' ),
+			'label'		=>	__( 'Content on right', 'jp-podstrap' ),
 			'thumbnail' =>	get_template_directory_uri() . '/img/sidebar-content.png',
 		),
 	);
@@ -251,7 +251,7 @@ function jp_podstrap_theme_options_render_page() {
 	?>
 	<div class="wrap">
 		<?php screen_icon(); ?>
-		<h2><?php esc_html_e( 'The Bootstrap Theme Options', 'the-bootstrap' ); ?></h2>
+		<h2><?php esc_html_e( 'The Bootstrap Theme Options', 'jp-podstrap' ); ?></h2>
 		<?php settings_errors(); ?>
 
 		<div id="poststuff">
@@ -299,7 +299,7 @@ function jp_podstrap_theme_options_validate( $input ) {
 	$output['navbar_searchform']	=	isset( $input['navbar_searchform'] ) AND $input['navbar_searchform'];
 	
 	if ( ! get_settings_errors() ) {
-		add_settings_error( 'the-bootstrap-options', 'settings_updated', sprintf( __( 'Settings saved. <a href="%s">Visit your site</a> to see how it looks.', 'the-bootstrap' ), home_url( '/' ) ), 'updated' );
+		add_settings_error( 'the-bootstrap-options', 'settings_updated', sprintf( __( 'Settings saved. <a href="%s">Visit your site</a> to see how it looks.', 'jp-podstrap' ), home_url( '/' ) ), 'updated' );
 	}
 	
 	return apply_filters( 'jp_podstrap_theme_options_validate', $output, $input, $defaults );
@@ -328,19 +328,19 @@ function jp_podstrap_theme_options_validate( $input ) {
 function jp_podstrap_donate_box() {
 	?>
 	<div id="formatdiv" class="postbox">
-		<h3 class="hndle"><span><?php esc_html_e( 'Help spread the word!', 'the-bootstrap' ); ?></span></h3>
+		<h3 class="hndle"><span><?php esc_html_e( 'Help spread the word!', 'jp-podstrap' ); ?></span></h3>
 		<div class="inside">
-			<p><strong><?php printf( _x( 'Want to help make this Theme even better? All donations are used to improve %1$s, so donate $20, $50 or $100 now!', 'Plugin Name', 'the-bootstrap' ), esc_html('The Bootstrap ') ); ?></strong></p>
+			<p><strong><?php printf( _x( 'Want to help make this Theme even better? All donations are used to improve %1$s, so donate $20, $50 or $100 now!', 'Plugin Name', 'jp-podstrap' ), esc_html('The Bootstrap ') ); ?></strong></p>
 			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 				<input type="hidden" name="cmd" value="_s-xclick">
 				<input type="hidden" name="hosted_button_id" value="542W6XT4PLT4L">
 				<input type="image" src="https://www.paypalobjects.com/<?php echo get_locale(); ?>/i/btn/btn_donate_LG.gif" name="submit" alt="PayPal">
 				<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
 			</form>
-			<p><?php _e( 'Or you could:', 'the-bootstrap' ); ?></p>
+			<p><?php _e( 'Or you could:', 'jp-podstrap' ); ?></p>
 			<ul>
-				<li><a href="http://wordpress.org/extend/themes/the-bootstrap"><?php _e( 'Rate the Theme 5&#9733; on WordPress.org', 'the-bootstrap' ); ?></a></li>
-				<li><a href="http://en.wp.obenland.it/the-bootstrap/"><?php _e( 'Blog about it &amp; link to the Theme page', 'the-bootstrap' ); ?></a></li>
+				<li><a href="http://wordpress.org/extend/themes/the-bootstrap"><?php _e( 'Rate the Theme 5&#9733; on WordPress.org', 'jp-podstrap' ); ?></a></li>
+				<li><a href="http://en.wp.obenland.it/the-bootstrap/"><?php _e( 'Blog about it &amp; link to the Theme page', 'jp-podstrap' ); ?></a></li>
 			</ul>
 		</div>
 	</div>
@@ -368,18 +368,18 @@ function jp_podstrap_feed_box() {
 	$rss_items = _jp_podstrap_fetch_feed( 'http://en.wp.obenland.it/feed/' );
 	?>
 	<div id="formatdiv" class="postbox">
-		<h3 class="hndle"><span><?php esc_html_e( 'News from Konstantin', 'the-bootstrap' ); ?></span></h3>
+		<h3 class="hndle"><span><?php esc_html_e( 'News from Konstantin', 'jp-podstrap' ); ?></span></h3>
 		<div class="inside">
 			<ul>
 			<?php if ( ! $rss_items ) : ?>
-			<li><?php _e( 'No news items, feed might be broken...', 'the-bootstrap' ); ?></li>
+			<li><?php _e( 'No news items, feed might be broken...', 'jp-podstrap' ); ?></li>
 			<?php else :
 			foreach ( $rss_items as $item ) :
 				$url = preg_replace( '/#.*/', '#utm_source=wordpress&utm_medium=sidebannerpostbox&utm_term=rssitem&utm_campaign=the-bootstrap',  $item->get_permalink() ); ?>
 			<li><a class="rsswidget" href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $item->get_title() ); ?></a></li>
 			<?php endforeach; endif; ?>
-				<li class="twitter"><a href="http://twitter.com/obenland"><?php _e( 'Follow Konstantin on Twitter', 'the-bootstrap' ); ?></a></li>
-				<li class="rss"><a href="http://en.wp.obenland.it/feed/"><?php _e( 'Subscribe via RSS', 'the-bootstrap' ); ?></a></li>
+				<li class="twitter"><a href="http://twitter.com/obenland"><?php _e( 'Follow Konstantin on Twitter', 'jp-podstrap' ); ?></a></li>
+				<li class="rss"><a href="http://en.wp.obenland.it/feed/"><?php _e( 'Subscribe via RSS', 'jp-podstrap' ); ?></a></li>
 			</ul>
 		</div>
 	</div>

@@ -17,7 +17,7 @@ tha_entry_before(); ?>
 	
 	<header class="page-header">
 		<hgroup>
-			<?php the_title( '<h2 class="entry-title"><a href="' . get_permalink() .'" title="' . sprintf( esc_attr__( 'Permalink to %s', 'the-bootstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a></h2>' ); ?>
+			<?php the_title( '<h2 class="entry-title"><a href="' . get_permalink() .'" title="' . sprintf( esc_attr__( 'Permalink to %s', 'jp-podstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a></h2>' ); ?>
 			<h3 class="entry-format"><?php echo get_post_format_string(get_post_format()); ?></h3>
 		</hgroup>
 
@@ -49,7 +49,7 @@ tha_entry_before(); ?>
 				<em>
 				<?php
 				printf(
-					_n( 'This gallery contains <strong>%1$s photo</strong>.', 'This gallery contains <strong>%1$s photos</strong>.', $jp_podstrap_total_images, 'the-bootstrap' ),
+					_n( 'This gallery contains <strong>%1$s photo</strong>.', 'This gallery contains <strong>%1$s photos</strong>.', $jp_podstrap_total_images, 'jp-podstrap' ),
 					number_format_i18n( $jp_podstrap_total_images )
 				); ?>
 				</em>
@@ -73,8 +73,8 @@ tha_entry_before(); ?>
 			</div>
 		
 			<!-- Carousel nav -->
-			<a class="carousel-control left" href="#gallery-slider" data-slide="prev"><?php _ex( '&lsaquo;', 'carousel-control', 'the-bootstrap' ); ?></a>
-			<a class="carousel-control right" href="#gallery-slider" data-slide="next"><?php _ex( '&rsaquo;', 'carousel-control', 'the-bootstrap' ); ?></a>
+			<a class="carousel-control left" href="#gallery-slider" data-slide="prev"><?php _ex( '&lsaquo;', 'carousel-control', 'jp-podstrap' ); ?></a>
+			<a class="carousel-control right" href="#gallery-slider" data-slide="next"><?php _ex( '&rsaquo;', 'carousel-control', 'jp-podstrap' ); ?></a>
 		</div><!-- #gallery-slider -->
 				
 		<?php endif; /* if images */ ?>

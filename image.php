@@ -40,10 +40,10 @@ the_post();
 			<span class="gallery-link pull-left">
 				<a href="<?php echo get_permalink( $post->post_parent ); ?>">
 				<?php printf(
-					_x( '&laquo; %1$s (%2$s)', 'Post title, amount of images', 'the-bootstrap' ),
+					_x( '&laquo; %1$s (%2$s)', 'Post title, amount of images', 'jp-podstrap' ),
 					get_the_title( $post->post_parent ),
 					sprintf(
-						_nx( '%d image', '%d images', $total_images, 'Amount of images', 'the-bootstrap' ),
+						_nx( '%d image', '%d images', $total_images, 'Amount of images', 'jp-podstrap' ),
 						$total_images
 					)
 				); ?>
@@ -51,12 +51,12 @@ the_post();
 			</span>
 			<span class="nav-links pull-right">
 				<?php
-				edit_post_link( __( 'Edit', 'the-bootstrap' ), ' <span class="edit-link label">', '</span><span class="sep">&nbsp;</span>' );
-				jp_podstrap_comments_link( __( 'Leave a comment', 'the-bootstrap' ) );
+				edit_post_link( __( 'Edit', 'jp-podstrap' ), ' <span class="edit-link label">', '</span><span class="sep">&nbsp;</span>' );
+				jp_podstrap_comments_link( __( 'Leave a comment', 'jp-podstrap' ) );
 				if ( isset($attachments[$k-1]) )
-					echo ' &mdash; <a href="' . get_permalink( $attachments[$k-1]->ID ) . '">' . __( '&laquo; Previous Photo', 'the-bootstrap' ) . '</a>';
+					echo ' &mdash; <a href="' . get_permalink( $attachments[$k-1]->ID ) . '">' . __( '&laquo; Previous Photo', 'jp-podstrap' ) . '</a>';
 				if ( isset($attachments[$k+1]) )
-					echo ' &mdash; <a href="' . get_permalink( $attachments[$k+1]->ID ) . '">' . __( 'Next Photo &raquo;', 'the-bootstrap' ) . '</a>';
+					echo ' &mdash; <a href="' . get_permalink( $attachments[$k+1]->ID ) . '">' . __( 'Next Photo &raquo;', 'jp-podstrap' ) . '</a>';
 				?>
 			</span>
 		</nav><!-- #nav-single -->

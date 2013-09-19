@@ -27,7 +27,7 @@ get_header(); ?>
 			<header class="page-header">
 				<h1 class="page-title">
 					<?php
-						_e( 'All Features', 'the-bootstrap' );
+						_e( 'All Features', 'jp-podstrap' );
 					endif; ?>
 				</h1>
 			</header><!-- .page-header -->

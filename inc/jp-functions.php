@@ -13,22 +13,22 @@
 * @author Josh Pollock
 * @param string $tagline Title for the section.
 * @param string $text Text for section.
-* @param sting $domain Translation text domain
+* @param sting 'jp-podstrap' Translation text domain
 * @param boolean $cta Show CTA link on true. Default = false. Optional.
 * @link string $link Link for CTA button. Required if $cta = true.
 * @param string ctaText Text for CTA button. Optional.
 */
 if ( ! function_exists('jp_podstrap_jumbotron') ) :
-function jp_podstrap_jumbotron($tagline, $text, $domain, $cta = false, $link = '', $ctaText = "Call To Action") { ?>
+function jp_podstrap_jumbotron($tagline, $text, 'jp-podstrap', $cta = false, $link = '', $ctaText = "Call To Action") { ?>
 	<!-- Jumbotron -->
 	<div class="jumbotron">
-		<h2><?php esc_attr_e($tagline, $domain); ?></h2>
-		<p class="lead"><?php _e($text, $domain); ?></p>
+		<h2><?php esc_attr_e($tagline, 'jp-podstrap'); ?></h2>
+		<p class="lead"><?php _e($text, 'jp-podstrap'); ?></p>
 		<?php if ($cta != false) {
 			//esc cta link into a var
 			$ctaLink = esc_url($link);
 			echo '<a class="btn btn-large btn-success" href="'.$ctaLink.'">';
-			_e($ctaText, $domain);
+			_e($ctaText, 'jp-podstrap');
 			echo '</a>';
 		}
 		?>
@@ -42,17 +42,17 @@ endif; // ! jp_podstrap_jumbotron exists
 *
 * @author Josh Pollock
 * @param int $fPodId ID of Pod for feature who's subnav this is
-* @param string $domain text translation domain
+* @param string 'jp-podstrap' text translation domain
 * $todo Get rid of totally redundant use of pods()
 */
 if ( ! function_exists( 'jp_podstrap_feature_submenu' ) ) :
-function jp_podstrap_feature_submenu( $fPodId, $domain ) {
+function jp_podstrap_feature_submenu( $fPodId, 'jp-podstrap' ) {
 	//get Pod object for feature
 	$feature = pods();
 	?>
 	<subnav class="navbar">
   		<div class="navbar-inner pull-right">
-   			<a class="brand" href="#"><?php _e( $feature->field('short_title'), $domain) ; ?></a>
+   			<a class="brand" href="#"><?php _e( $feature->field('short_title'), 'jp-podstrap') ; ?></a>
 			<ul class="nav">
 		<?php 
 			//Put the sub features in an array
@@ -67,7 +67,7 @@ function jp_podstrap_feature_submenu( $fPodId, $domain ) {
 					echo '<li ><a href="';
 					esc_url( get_permalink( $id ) );
 					echo '">';
-					_e( $short_title, $domain );
+					_e( $short_title, 'jp-podstrap' );
 					echo '</a></li>';
 				} //end foreach
 			} //endif
@@ -149,10 +149,10 @@ endif; // ! jp_podstrap_dynamic_styles exists
 * Related Features Box
 *
 * @author Josh Pollock
-* @param string $domain text translation domain
+* @param string 'jp-podstrap' text translation domain
 */
 if ( ! function_exists ( 'jp_podstrap_related_features' ) ) :
-function jp_podstrap_related_features($domain) {
+function jp_podstrap_related_features('jp-podstrap') {
 	//first test if this a feature or sub_feature so we have our taxonomy to work with
 	if ( 'feature' == get_post_type() || 'sub_feature' == get_post_type() ) {
 		//get the feature/ sub_feature's feature categories
@@ -179,10 +179,10 @@ function jp_podstrap_related_features($domain) {
 		
 			//wrap output in a well
 			echo '<div class="well well-small">';
-			esc_attr_e( 'Related Features:&nbsp;', $domain );
+			esc_attr_e( 'Related Features:&nbsp;', 'jp-podstrap' );
 			//Show the titles of queried posts as links
 			while ( $query->have_posts() ) : $query->the_post();
-				the_title( '<p class="feature-group pull-left"><a href="' . get_permalink() .'" title="' . sprintf( esc_attr__( 'Permalink to %s', 'the-bootstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a>&nbsp;&nbsp;</p>');
+				the_title( '<p class="feature-group pull-left"><a href="' . get_permalink() .'" title="' . sprintf( esc_attr__( 'Permalink to %s', 'jp-podstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a>&nbsp;&nbsp;</p>');
 			endwhile; //have posts
 			wp_reset_postdata();
 			echo "</div>";
@@ -260,11 +260,4 @@ function jp_podstrap_no_title_front_loop($title, $id) {
 }
 add_filter('the_title', 'jp_podstrap_no_title_front_loop', 10, 2);
 endif; // ! jp_podstrap_no_title_front_loop exists
-
-/**
-* Define translation text domain as a global
-*
-* @author Josh Pollock
-*/
-$GLOBALS['$domain'] = 'ht';
 ?>

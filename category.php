@@ -20,7 +20,7 @@ get_header(); ?>
 
 			<header class="page-header">
 				<h1 class="page-title"><?php
-					printf( __( 'Category Archives: %s', 'the-bootstrap' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+					printf( __( 'Category Archives: %s', 'jp-podstrap' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 				?></h1>
 	
 				<?php if ( $category_description = category_description() ) {

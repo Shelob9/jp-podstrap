@@ -72,9 +72,9 @@ if ( ! function_exists( 'jp_podstrap_comment_nav' ) ) :
 function jp_podstrap_comment_nav() {
 	if ( get_comment_pages_count() > 1 AND get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 	<nav class="comment-nav well">
-		<h1 class="assistive-text"><?php _e( 'Comment navigation', 'the-bootstrap' ); ?></h1>
-		<div class="nav-previous alignleft"><?php next_comments_link( __( '&larr; Newer Comments', 'the-bootstrap' ) ); ?></div>
-		<div class="nav-next alignright"><?php previous_comments_link( __( 'Older Comments &rarr;', 'the-bootstrap' ) ); ?></div>
+		<h1 class="assistive-text"><?php _e( 'Comment navigation', 'jp-podstrap' ); ?></h1>
+		<div class="nav-previous alignleft"><?php next_comments_link( __( '&larr; Newer Comments', 'jp-podstrap' ) ); ?></div>
+		<div class="nav-next alignright"><?php previous_comments_link( __( 'Older Comments &rarr;', 'jp-podstrap' ) ); ?></div>
 	</nav>
 	<?php endif; // check for comment navigation
 }
@@ -92,23 +92,23 @@ if ( ! function_exists( 'jp_podstrap_posted_on' ) ) :
 * @return	void
 */
 function jp_podstrap_posted_on() {
-	printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'the-bootstrap' ),
+	printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'jp-podstrap' ),
 			esc_url( get_permalink() ),
 			esc_attr( get_the_time() ),
 			esc_attr( get_the_date( 'c' ) ),
 			esc_html( get_the_date() ),
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_attr( sprintf( __( 'View all posts by %s', 'the-bootstrap' ), get_the_author() ) ),
+			esc_attr( sprintf( __( 'View all posts by %s', 'jp-podstrap' ), get_the_author() ) ),
 			get_the_author()
 	);
 	if ( comments_open() AND ! post_password_required() ) { ?>
 		<span class="sep"> | </span>
 		<span class="comments-link">
-			<?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a reply', 'the-bootstrap' ) . '</span>', __( '<strong>1</strong> Reply', 'the-bootstrap' ), __( '<strong>%</strong> Replies', 'the-bootstrap' ) ); ?>
+			<?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a reply', 'jp-podstrap' ) . '</span>', __( '<strong>1</strong> Reply', 'jp-podstrap' ), __( '<strong>%</strong> Replies', 'jp-podstrap' ) ); ?>
 		</span>
 		<?php
 	}
-	edit_post_link( __( 'Edit', 'the-bootstrap' ), '<span class="sep">&nbsp;</span><span class="edit-link label">', '</span>' );
+	edit_post_link( __( 'Edit', 'jp-podstrap' ), '<span class="sep">&nbsp;</span><span class="edit-link label">', '</span>' );
 }
 endif;
 
@@ -132,8 +132,8 @@ function jp_podstrap_link_pages( $args = array() ) {
 	wp_link_pages( array( 'echo' => 0 ));
 	$defaults = array(
 		'next_or_number'	=> 'number',
-		'nextpagelink'		=> __('Next page', 'the-bootstrap'),
-		'previouspagelink'	=> __('Previous page', 'the-bootstrap'),
+		'nextpagelink'		=> __('Next page', 'jp-podstrap'),
+		'previouspagelink'	=> __('Previous page', 'jp-podstrap'),
 		'pagelink'			=> '%',
 		'echo'				=> true
 	);
@@ -147,7 +147,7 @@ function jp_podstrap_link_pages( $args = array() ) {
 	$output = '';
 	if ( $multipage ) {
 		if ( 'number' == $next_or_number ) {
-			$output .= '<nav class="pagination clear"><ul><li><span class="dots">' . __('Pages:', 'the-bootstrap') . '</span></li>';
+			$output .= '<nav class="pagination clear"><ul><li><span class="dots">' . __('Pages:', 'jp-podstrap') . '</span></li>';
 			for ( $i = 1; $i < ($numpages + 1); $i++ ) {
 				$j = str_replace( '%', $i, $pagelink );
 				if ( ($i != $page) || ((!$more) && ($page!=1)) ) {
@@ -161,7 +161,7 @@ function jp_podstrap_link_pages( $args = array() ) {
 			$output .= '</ul></nav>';
 		} else {
 			if ( $more ) {
-				$output .= '<nav class="pagination clear"><ul><li><span class="dots">' . __('Pages:', 'the-bootstrap') . '</span></li>';
+				$output .= '<nav class="pagination clear"><ul><li><span class="dots">' . __('Pages:', 'jp-podstrap') . '</span></li>';
 				$i = $page - 1;
 				if ( $i && $more ) {
 					$output .= '<li>' . _wp_link_page( $i ) . $previouspagelink. '</a></li>';
@@ -196,8 +196,8 @@ if ( ! function_exists( 'jp_podstrap_navbar_searchform' ) ) :
 */
 function jp_podstrap_navbar_searchform( $echo = true ) {
 	$searchform = '	<form id="searchform" class="navbar-search pull-right" method="get" action="' . esc_url( home_url( '/' ) ) . '">
-						<label for="s" class="assistive-text hidden">' . __( 'Search', 'the-bootstrap' ) . '</label>
-						<input type="search" class="search-query" name="s" id="s" placeholder="' . esc_attr__( 'Search', 'the-bootstrap' ) . '" />
+						<label for="s" class="assistive-text hidden">' . __( 'Search', 'jp-podstrap' ) . '</label>
+						<input type="search" class="search-query" name="s" id="s" placeholder="' . esc_attr__( 'Search', 'jp-podstrap' ) . '" />
 					</form>';
 
 	if ( $echo )

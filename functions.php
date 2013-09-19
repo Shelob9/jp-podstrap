@@ -29,7 +29,7 @@ function jp_podstrap_setup() {
 		$content_width = 770;
 	}
 	
-	load_theme_textdomain( 'the-bootstrap', get_template_directory() . '/lang' );
+	load_theme_textdomain( 'jp-podstrap', get_template_directory() . '/lang' );
 	
 	add_theme_support( 'automatic-feed-links' );
 	
@@ -84,9 +84,9 @@ function jp_podstrap_setup() {
 	 * @see		http://codex.wordpress.org/Function_Reference/register_nav_menus
 	 */
 	register_nav_menus( array(
-		'primary'		=>	__( 'Main Navigation', 'the-bootstrap' ),
-		'header-menu'  	=>	__( 'Header Menu', 'the-bootstrap' ),
-		'footer-menu' 	=>	__( 'Footer Menu', 'the-bootstrap' )
+		'primary'		=>	__( 'Main Navigation', 'jp-podstrap' ),
+		'header-menu'  	=>	__( 'Header Menu', 'jp-podstrap' ),
+		'footer-menu' 	=>	__( 'Footer Menu', 'jp-podstrap' )
 	) );
 	
 } // jp_podstrap_setup
@@ -184,7 +184,7 @@ add_action( 'after_setup_theme', 'jp_podstrap_custom_background_setup' );
 function jp_podstrap_widgets_init() {
 
 	register_sidebar( array(
-		'name'			=>	__( 'Main Sidebar', 'the-bootstrap' ),
+		'name'			=>	__( 'Main Sidebar', 'jp-podstrap' ),
 		'id'			=>	'main',
 		'before_widget'	=>	'<aside id="%1$s" class="widget well %2$s">',
 		'after_widget'	=>	'</aside>',
@@ -193,8 +193,8 @@ function jp_podstrap_widgets_init() {
 	) );
 	
 	register_sidebar( array(
-		'name'			=>	__( 'Image Sidebar', 'the-bootstrap' ),
-		'description'	=>	__( 'Shown on image attachment pages.', 'the-bootstrap' ),
+		'name'			=>	__( 'Image Sidebar', 'jp-podstrap' ),
+		'description'	=>	__( 'Shown on image attachment pages.', 'jp-podstrap' ),
 		'id'			=>	'image',
 		'before_widget'	=>	'<aside id="%1$s" class="widget well %2$s">',
 		'after_widget'	=>	'</aside>',
@@ -237,7 +237,7 @@ function jp_podstrap_register_scripts_styles() {
 		);
 		
 		wp_register_script(
-			'the-bootstrap',
+			'jp-podstrap',
 			get_template_directory_uri() . "/js/the-bootstrap{$suffix}.js",
 			array('tw-bootstrap'),
 			$theme_version,
@@ -255,7 +255,7 @@ function jp_podstrap_register_scripts_styles() {
 		);
 		
 		wp_register_style(
-			'the-bootstrap',
+			'jp-podstrap',
 			get_template_directory_uri() . "/style{$suffix}.css",
 			array('tw-bootstrap'),
 			$theme_version
@@ -274,7 +274,7 @@ add_action( 'init', 'jp_podstrap_register_scripts_styles' );
  * @return	void
  */
 function jp_podstrap_print_scripts() {
-	wp_enqueue_script( 'the-bootstrap' );
+	wp_enqueue_script( 'jp-podstrap' );
 }
 add_action( 'wp_enqueue_scripts', 'jp_podstrap_print_scripts' );
 
@@ -329,9 +329,9 @@ add_action( 'comment_form_before', 'jp_podstrap_comment_reply' );
  */
 function jp_podstrap_print_styles() {
 	if ( is_child_theme() ) {
-		wp_enqueue_style( 'the-bootstrap-child', get_stylesheet_uri(), array( 'the-bootstrap' ) );
+		wp_enqueue_style( 'the-bootstrap-child', get_stylesheet_uri(), array( 'jp-podstrap' ) );
 	} else {
-		wp_enqueue_style( 'the-bootstrap' );
+		wp_enqueue_style( 'jp-podstrap' );
 	}
 	
 	if ( 'static' != jp_podstrap_options()->navbar_position ) {
@@ -342,7 +342,7 @@ function jp_podstrap_print_styles() {
 			$css	.=	'.navbar.navbar-fixed-top{margin-top:28px;}';
 	
 		if ( function_exists( 'wp_add_inline_style' ) )
-			wp_add_inline_style( 'the-bootstrap', $css );
+			wp_add_inline_style( 'jp-podstrap', $css );
 		else
 			echo "<style type='text/css'>\n{$css}\n</style>\n";
 	}
@@ -362,7 +362,7 @@ if ( ! function_exists( 'jp_podstrap_credits' ) ) :
  */
 function jp_podstrap_credits() {
 	printf(
-		'<span class="credits alignleft">' . __( '&copy; %1$s <a href="%2$s">%3$s</a>, all rights reserved.', 'the-bootstrap' ) . '</span>',
+		'<span class="credits alignleft">' . __( '&copy; %1$s <a href="%2$s">%3$s</a>, all rights reserved.', 'jp-podstrap' ) . '</span>',
 		date( 'Y' ),
 		home_url( '/' ),
 		get_bloginfo( 'name' )
@@ -408,7 +408,7 @@ add_filter( 'wp_title', 'jp_podstrap_wp_title', 1, 2 );
  * @return	string
  */
 function jp_podstrap_continue_reading_link() {
-	return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'the-bootstrap' ) . '</a>';
+	return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'jp-podstrap' ) . '</a>';
 }
 
 
@@ -505,7 +505,7 @@ add_filter( 'attachment_link', 'jp_podstrap_enhanced_image_navigation', 10, 2 );
 function jp_podstrap_comments_list() {
 	if ( post_password_required() ) : ?>
 		<div id="comments">
-			<p class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'the-bootstrap' ); ?></p>
+			<p class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'jp-podstrap' ); ?></p>
 		</div><!-- #comments -->
 		<?php
 		return;
@@ -515,7 +515,7 @@ function jp_podstrap_comments_list() {
 	if ( have_comments() ) : ?>
 		<div id="comments">
 			<h2 id="comments-title">
-				<?php printf( _n( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'the-bootstrap' ),
+				<?php printf( _n( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'jp-podstrap' ),
 						number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' ); ?>
 			</h2>
 		
@@ -545,7 +545,7 @@ add_action( 'comment_form_comments_closed', 'jp_podstrap_comments_list', 1 );
  */
 function jp_podstrap_comments_closed() {
 	if ( ! is_page() AND post_type_supports( get_post_type(), 'comments' ) ) : ?>
-		<p class="nocomments"><?php _e( 'Comments are closed.', 'the-bootstrap' ); ?></p>
+		<p class="nocomments"><?php _e( 'Comments are closed.', 'jp-podstrap' ); ?></p>
 	<?php endif;
 }
 add_action( 'comment_form_comments_closed', 'jp_podstrap_comments_closed' );
@@ -563,14 +563,14 @@ add_action( 'comment_form_comments_closed', 'jp_podstrap_comments_closed' );
  */
 function jp_podstrap_comment_form_defaults( $defaults ) {
 	return wp_parse_args( array(
-		'comment_field'			=>	'<div class="comment-form-comment control-group"><label class="control-label" for="comment">' . _x( 'Comment', 'noun', 'the-bootstrap' ) . '</label><div class="controls"><textarea class="span7" id="comment" name="comment" row-fluids="8" aria-required="true"></textarea></div></div>',
+		'comment_field'			=>	'<div class="comment-form-comment control-group"><label class="control-label" for="comment">' . _x( 'Comment', 'noun', 'jp-podstrap' ) . '</label><div class="controls"><textarea class="span7" id="comment" name="comment" row-fluids="8" aria-required="true"></textarea></div></div>',
 		'comment_notes_before'	=>	'',
-		'comment_notes_after'	=>	'<div class="form-allowed-tags control-group"><label class="control-label">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s', 'the-bootstrap' ), '</label><div class="controls"><pre>' . allowed_tags() . '</pre></div>' ) . '</div>
+		'comment_notes_after'	=>	'<div class="form-allowed-tags control-group"><label class="control-label">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s', 'jp-podstrap' ), '</label><div class="controls"><pre>' . allowed_tags() . '</pre></div>' ) . '</div>
 									 <div class="form-actions">',
-		'title_reply'			=>	'<legend>' . __( 'Leave a reply', 'the-bootstrap' ) . '</legend>',
-		'title_reply_to'		=>	'<legend>' . __( 'Leave a reply to %s', 'the-bootstrap' ). '</legend>',
-		'must_log_in'			=>	'<div class="must-log-in control-group controls">' . sprintf( __( 'You must be <a href="%s">logged in</a> to post a comment.', 'the-bootstrap' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( get_the_ID() ) ) ) ) . '</div>',
-		'logged_in_as'			=>	'<div class="logged-in-as control-group controls">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>', 'the-bootstrap' ), admin_url( 'profile.php' ), wp_get_current_user()->display_name, wp_logout_url( apply_filters( 'the_permalink', get_permalink( get_the_ID() ) ) ) ) . '</div>',
+		'title_reply'			=>	'<legend>' . __( 'Leave a reply', 'jp-podstrap' ) . '</legend>',
+		'title_reply_to'		=>	'<legend>' . __( 'Leave a reply to %s', 'jp-podstrap' ). '</legend>',
+		'must_log_in'			=>	'<div class="must-log-in control-group controls">' . sprintf( __( 'You must be <a href="%s">logged in</a> to post a comment.', 'jp-podstrap' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( get_the_ID() ) ) ) ) . '</div>',
+		'logged_in_as'			=>	'<div class="logged-in-as control-group controls">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>', 'jp-podstrap' ), admin_url( 'profile.php' ), wp_get_current_user()->display_name, wp_logout_url( apply_filters( 'the_permalink', get_permalink( get_the_ID() ) ) ) ) . '</div>',
 	), $defaults );
 }
 add_filter( 'comment_form_defaults', 'jp_podstrap_comment_form_defaults' );
@@ -600,8 +600,8 @@ function jp_podstrap_comment( $comment, $args, $depth ) {
 	
 		<li id="li-comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
 			<p class="row-fluid">
-				<strong class="ping-label span1"><?php _e( 'Pingback:', 'the-bootstrap' ); ?></strong>
-				<span class="span7"><?php comment_author_link(); edit_comment_link( __( 'Edit', 'the-bootstrap' ), '<span class="sep">&nbsp;</span><span class="edit-link label">', '</span>' ); ?></span>
+				<strong class="ping-label span1"><?php _e( 'Pingback:', 'jp-podstrap' ); ?></strong>
+				<span class="span7"><?php comment_author_link(); edit_comment_link( __( 'Edit', 'jp-podstrap' ), '<span class="sep">&nbsp;</span><span class="edit-link label">', '</span>' ); ?></span>
 			</p>
 	
 	<?php else:
@@ -617,20 +617,20 @@ function jp_podstrap_comment( $comment, $args, $depth ) {
 					<p class="comment-author vcard">
 						<?php
 							/* translators: 1: comment author, 2: date and time */
-							printf( __( '%1$s <span class="says">said</span> on %2$s:', 'the-bootstrap' ),
+							printf( __( '%1$s <span class="says">said</span> on %2$s:', 'jp-podstrap' ),
 								sprintf( '<span class="fn">%s</span>', get_comment_author_link() ),
 								sprintf( '<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
 									esc_url( get_comment_link( $comment->comment_ID ) ),
 									get_comment_time( 'c' ),
 									/* translators: 1: date, 2: time */
-									sprintf( __( '%1$s at %2$s', 'the-bootstrap' ), get_comment_date(), get_comment_time() )
+									sprintf( __( '%1$s at %2$s', 'jp-podstrap' ), get_comment_date(), get_comment_time() )
 								)
 							);
-							edit_comment_link( __( 'Edit', 'the-bootstrap' ), '<span class="sep">&nbsp;</span><span class="edit-link label">', '</span>' ); ?>
+							edit_comment_link( __( 'Edit', 'jp-podstrap' ), '<span class="sep">&nbsp;</span><span class="edit-link label">', '</span>' ); ?>
 					</p><!-- .comment-author .vcard -->
 	
 					<?php if ( ! $comment->comment_approved ) : ?>
-					<div class="comment-awaiting-moderation alert alert-info"><em><?php _e( 'Your comment is awaiting moderation.', 'the-bootstrap' ); ?></em></div>
+					<div class="comment-awaiting-moderation alert alert-info"><em><?php _e( 'Your comment is awaiting moderation.', 'jp-podstrap' ); ?></em></div>
 					<?php endif; ?>
 	
 				</footer><!-- .comment-meta -->
@@ -639,7 +639,7 @@ function jp_podstrap_comment( $comment, $args, $depth ) {
 					<?php
 					comment_text();
 					comment_reply_link( array_merge( $args, array(
-						'reply_text'	=>	__( 'Reply <span>&darr;</span>', 'the-bootstrap' ),
+						'reply_text'	=>	__( 'Reply <span>&darr;</span>', 'jp-podstrap' ),
 						'depth'			=>	$depth,
 						'max_depth'		=>	$args['max_depth']
 					) ) ); ?>
@@ -701,10 +701,10 @@ function jp_podstrap_comment_form_field_author( $html ) {
 	$aria_req	=	( $req ? " aria-required='true'" : '' );
 	
 	return	'<div class="comment-form-author control-group">
-				<label for="author" class="control-label">' . __( 'Name', 'the-bootstrap' ) . '</label>
+				<label for="author" class="control-label">' . __( 'Name', 'jp-podstrap' ) . '</label>
 				<div class="controls">
 					<input id="author" name="author" type="text" value="' . esc_attr(  $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' />
-					' . ( $req ? '<p class="help-inline"><span class="required">' . __('required', 'the-bootstrap') . '</span></p>' : '' ) . '
+					' . ( $req ? '<p class="help-inline"><span class="required">' . __('required', 'jp-podstrap') . '</span></p>' : '' ) . '
 				</div>
 			</div>';
 }
@@ -727,10 +727,10 @@ function jp_podstrap_comment_form_field_email( $html ) {
 	$aria_req	=	( $req ? " aria-required='true'" : '' );
 	
 	return	'<div class="comment-form-email control-group">
-				<label for="email" class="control-label">' . __( 'Email', 'the-bootstrap' ) . '</label>
+				<label for="email" class="control-label">' . __( 'Email', 'jp-podstrap' ) . '</label>
 				<div class="controls">
 					<input id="email" name="email" type="email" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' />
-					<p class="help-inline">' . ( $req ? '<span class="required">' . __('required', 'the-bootstrap') . '</span>, ' : '' ) . __( 'will not be published', 'the-bootstrap' ) . '</p>
+					<p class="help-inline">' . ( $req ? '<span class="required">' . __('required', 'jp-podstrap') . '</span>, ' : '' ) . __( 'will not be published', 'jp-podstrap' ) . '</p>
 				</div>
 			</div>';
 }
@@ -751,7 +751,7 @@ function jp_podstrap_comment_form_field_url( $html ) {
 	$commenter	=	wp_get_current_commenter();
 	
 	return	'<div class="comment-form-url control-group">
-				<label for="url" class="control-label">' . __( 'Website', 'the-bootstrap' ) . '</label>
+				<label for="url" class="control-label">' . __( 'Website', 'jp-podstrap' ) . '</label>
 				<div class="controls">
 					<input id="url" name="url" type="url" value="' . esc_attr(  $commenter['comment_author_url'] ) . '" size="30" />
 				</div>
@@ -921,7 +921,7 @@ function jp_podstrap_post_gallery( $content, $attr ) {
 		$output .= "<{$icontag} class='gallery-icon'>{$link}</{$icontag}>\n";
 			
 		if ( $captiontag AND ( 0 < $comments OR trim( $attachment->post_excerpt ) ) ) {
-			$comments	=	( 0 < $comments ) ? sprintf( _n('%d comment', '%d comments', $comments, 'the-bootstrap'), $comments ) : '';
+			$comments	=	( 0 < $comments ) ? sprintf( _n('%d comment', '%d comments', $comments, 'jp-podstrap'), $comments ) : '';
 			$excerpt	=	wptexturize( $attachment->post_excerpt );
 			$out		=	($comments AND $excerpt) ? " $excerpt <br /> $comments " : " $excerpt$comments ";
 			$output		.=	"<{$captiontag} class='wp-caption-text gallery-caption'>{$out}</{$captiontag}>\n";
@@ -983,7 +983,7 @@ add_filter( 'img_caption_shortcode', 'jp_podstrap_img_caption_shortcode', 10, 3 
  * @return	string	The Bootstrap password form
  */
 function jp_podstrap_the_password_form( $form ) {
-	return '<form class="post-password-form form-horizontal" action="' . home_url( 'wp-pass.php' ) . '" method="post"><legend>'. __( 'This post is password protected. To view it please enter your password below:', 'the-bootstrap' ) . '</legend><div class="control-group"><label class="control-label" for="post-password-' . get_the_ID() . '">' . __( 'Password:', 'the-bootstrap' ) .'</label><div class="controls"><input name="post_password" id="post-password-' . get_the_ID() . '" type="password" size="20" /></div></div><div class="form-actions"><button type="submit" class="post-password-submit submit btn btn-primary">' . __( 'Submit', 'the-bootstrap' ) . '</button></div></form>';
+	return '<form class="post-password-form form-horizontal" action="' . home_url( 'wp-pass.php' ) . '" method="post"><legend>'. __( 'This post is password protected. To view it please enter your password below:', 'jp-podstrap' ) . '</legend><div class="control-group"><label class="control-label" for="post-password-' . get_the_ID() . '">' . __( 'Password:', 'jp-podstrap' ) .'</label><div class="controls"><input name="post_password" id="post-password-' . get_the_ID() . '" type="password" size="20" /></div></div><div class="form-actions"><button type="submit" class="post-password-submit submit btn btn-primary">' . __( 'Submit', 'jp-podstrap' ) . '</button></div></form>';
 }
 add_filter( 'the_password_form', 'jp_podstrap_the_password_form' );
 
