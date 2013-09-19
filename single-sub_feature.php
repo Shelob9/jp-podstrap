@@ -42,11 +42,11 @@ get_header(); ?>
 			//check if there is a value for link (ie somewhere for button to take us)
 			if ( $link != false ) {
 				//Do the jumbotron with button
-				jp_jumbotron($tag, $text, $domain, $cta= true, $link, $ctaText );
+				jp_podstrap_jumbotron($tag, $text, $domain, $cta= true, $link, $ctaText );
 			}
 			else {
 				//Do the jumbotron without button.
-				jp_jumbotron($tag, $text, $cta = false );
+				jp_podstrap_jumbotron($tag, $text, $cta = false );
 			}
 		?>
 				<div class="row-fluid">
@@ -56,7 +56,7 @@ get_header(); ?>
 				</div>
 			
 			<?php } //end while have_posts
-			jp_related_features($domain);
+			jp_podstrap_related_features($domain);
 			tha_content_bottom(); ?>
 		</div><!-- #content -->
 	<?php tha_content_after(); ?>

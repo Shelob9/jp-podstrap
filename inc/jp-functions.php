@@ -18,8 +18,8 @@
 * @link string $link Link for CTA button. Required if $cta = true.
 * @param string ctaText Text for CTA button. Optional.
 */
-if ( ! function_exists('jp_jumbotron') ) :
-function jp_jumbotron($tagline, $text, $domain, $cta = false, $link = '', $ctaText = "Call To Action") { ?>
+if ( ! function_exists('jp_podstrap_jumbotron') ) :
+function jp_podstrap_jumbotron($tagline, $text, $domain, $cta = false, $link = '', $ctaText = "Call To Action") { ?>
 	<!-- Jumbotron -->
 	<div class="jumbotron">
 		<h2><?php esc_attr_e($tagline, $domain); ?></h2>
@@ -34,7 +34,7 @@ function jp_jumbotron($tagline, $text, $domain, $cta = false, $link = '', $ctaTe
 		?>
     </div>
 <?php }
-endif; // ! jp_jumbotron exists
+endif; // ! jp_podstrap_jumbotron exists
 
 
 /**
@@ -45,8 +45,8 @@ endif; // ! jp_jumbotron exists
 * @param string $domain text translation domain
 * $todo Get rid of totally redundant use of pods()
 */
-if ( ! function_exists( 'jp_feature_submenu' ) ) :
-function jp_feature_submenu( $fPodId, $domain ) {
+if ( ! function_exists( 'jp_podstrap_feature_submenu' ) ) :
+function jp_podstrap_feature_submenu( $fPodId, $domain ) {
 	//get Pod object for feature
 	$feature = pods();
 	?>
@@ -77,28 +77,28 @@ function jp_feature_submenu( $fPodId, $domain ) {
 	</subnav>
 <?php
 }
-endif; // ! jp_feature_submenu exists
+endif; // ! jp_podstrap_feature_submenu exists
 
 /**
 * Add JS and CSS for this
 *
 * @author Josh pollock
 */
-if ( ! function_exists( 'jp_scripts_styles') ) :
-function jp_scripts_styles() {
+if ( ! function_exists( 'jp_podstrap_scripts_styles') ) :
+function jp_podstrap_scripts_styles() {
 	wp_enqueue_script( 'backstretch', get_template_directory_uri().'/js/jquery.backstretch.min.js', array( 'jquery'), false, false );
 	wp_enqueue_style( 'jp-style', get_template_directory_uri().'/css/jp.css' );
 }
-add_action('wp_enqueue_scripts', 'jp_scripts_styles');
-endif; // ! jp_scripts_styles exists
+add_action('wp_enqueue_scripts', 'jp_podstrap_scripts_styles');
+endif; // ! jp_podstrap_scripts_styles exists
 
 /**
 * Backstretch on jumbotron
 *
 * @author Josh Pollock
 */
-if ( ! function_exists( 'jp_jumbostretch' ) ) :
-function jp_jumbostretch() {
+if ( ! function_exists( 'jp_podstrap_jumbostretch' ) ) :
+function jp_podstrap_jumbostretch() {
 	//First test if this is the front page or a feature or sub_feature so we have pods to pick from
 	if ( is_front_page() || 'feature' == get_post_type() || 'sub_feature' == get_post_type() ) {
 		if ( is_front_page() ) {
@@ -119,16 +119,16 @@ function jp_jumbostretch() {
 		echo '</script>';
 	}
 }
-add_action('wp_footer', 'jp_jumbostretch');
-endif; // ! jp_jumbostretch exists
+add_action('wp_footer', 'jp_podstrap_jumbostretch');
+endif; // ! jp_podstrap_jumbostretch exists
 
 /**
 * Output dynamically generated CSS to header
 *
 * @author Josh Pollock
 */
-if ( ! function_exists ( 'jp_dynamic_styles') ) :
-function jp_dynamic_styles() {
+if ( ! function_exists ( 'jp_podstrap_dynamic_styles') ) :
+function jp_podstrap_dynamic_styles() {
 	//First test if this is the fornt page or a feature or sub_feature so we have pods to pick from
 	if ( is_front_page() || 'feature' == get_post_type() || 'sub_feature' == get_post_type() ) {
 		$pod = pods();
@@ -142,8 +142,8 @@ function jp_dynamic_styles() {
 <?php
 	}
 }
-add_action( 'wp_head', 'jp_dynamic_styles' );
-endif; // ! jp_dynamic_styles exists
+add_action( 'wp_head', 'jp_podstrap_dynamic_styles' );
+endif; // ! jp_podstrap_dynamic_styles exists
 
 /**
 * Related Features Box
@@ -151,8 +151,8 @@ endif; // ! jp_dynamic_styles exists
 * @author Josh Pollock
 * @param string $domain text translation domain
 */
-if ( ! function_exists ( 'jp_related_features' ) ) :
-function jp_related_features($domain) {
+if ( ! function_exists ( 'jp_podstrap_related_features' ) ) :
+function jp_podstrap_related_features($domain) {
 	//first test if this a feature or sub_feature so we have our taxonomy to work with
 	if ( 'feature' == get_post_type() || 'sub_feature' == get_post_type() ) {
 		//get the feature/ sub_feature's feature categories
@@ -189,7 +189,7 @@ function jp_related_features($domain) {
 		} //emdif we have terms
 	} //endif is feature/Sub_feature
 }
-endif; // ! jp_related_features exists
+endif; // ! jp_podstrap_related_features exists
 
 /**
 * Test if there is any content to return and if nto use Lorem Ipsums
@@ -198,8 +198,8 @@ endif; // ! jp_related_features exists
 * @param string $want Text you want to return.
 * @param bool $short Get short or long place holder text as fallback. Default = true which gives short.
 */
-if ( ! function_exists( 'jp_or_ipsums' ) ) :
-function jp_or_ipsums($want, $short = true) {
+if ( ! function_exists( 'jp_podstrap_or_ipsums' ) ) :
+function jp_podstrap_or_ipsums($want, $short = true) {
 	//put some genuine Lorem Ispums into some vars
 	$loremLong =  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis tempor nisl, et condimentum sem adipiscing ac. Suspendisse ut eros neque. Sed fermentum erat neque, at sagittis nibh pulvinar blandit. Nulla luctus eleifend venenatis. Nulla facilisi. Fusce tristique, sapien varius pulvinar sagittis, dui elit pharetra ante, a fringilla elit felis eu massa. Duis eget imperdiet arcu. Curabitur ac posuere mauris, eu tempus nisl. Suspendisse potenti. In elit augue, tristique sit amet lorem ut, ultrices auctor dui. Quisque sit amet quam lorem. Maecenas rhoncus congue placerat. Morbi molestie leo nibh, venenatis adipiscing enim dignissim ac. Donec a pulvinar lectus, id tincidunt massa. Phasellus at dui eget nisl posuere scelerisque.';
 	$loremShort =  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis tempor nisl, et condimentum sem adipiscing ac. Suspendisse ut eros neque. Sed fermentum erat neque.';
@@ -220,15 +220,15 @@ function jp_or_ipsums($want, $short = true) {
 		return $get;
 	}
 }
-endif; // ! jp_or_ipsums exists
+endif; // ! jp_podstrap_or_ipsums exists
 
 /**
 * Loop for feature and sub_feature archive pages
 *
 * @author Josh Pollock
 */
-if ( ! function_exists( 'jp_feature_archive_loop' ) ) :
-function jp_feature_archive_loop() {
+if ( ! function_exists( 'jp_podstrap_feature_archive_loop' ) ) :
+function jp_podstrap_feature_archive_loop() {
 	//query for both features and sub_features toghether
 	$args = array(
 				'post_type' => array( 'feature', 'sub_feature' ),
@@ -244,22 +244,22 @@ function jp_feature_archive_loop() {
 		wp_reset_postdata();
 	} //endif
 }
-endif; // ! jp_feature_archive_loop exists
+endif; // ! jp_podstrap_feature_archive_loop exists
 
 /**
 * Don't return the title in loop on front-page, since it would look very bad
 *
 * @author Josh Pollock
 */
-if ( ! function_exists( 'jp_no_title_front_loop' ) && ! is_admin() ) :
-function jp_no_title_front_loop($title, $id) {
+if ( ! function_exists( 'jp_podstrap_no_title_front_loop' ) && ! is_admin() ) :
+function jp_podstrap_no_title_front_loop($title, $id) {
     if ( is_front_page() ) {
         return '';
     }
     return $title;
 }
-add_filter('the_title', 'jp_no_title_front_loop', 10, 2);
-endif; // ! jp_no_title_front_loop exists
+add_filter('the_title', 'jp_podstrap_no_title_front_loop', 10, 2);
+endif; // ! jp_podstrap_no_title_front_loop exists
 
 /**
 * Define translation text domain as a global

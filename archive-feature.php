@@ -33,7 +33,7 @@ get_header(); ?>
 			</header><!-- .page-header -->
 
 			<?php
-			jp_feature_archive_loop();
+			jp_podstrap_feature_archive_loop();
 		tha_content_bottom(); ?>
 	</div><!-- #content -->
 	<?php tha_content_after(); ?>

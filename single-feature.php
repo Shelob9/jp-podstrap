@@ -41,14 +41,14 @@ get_header(); ?>
 			//check if there is a value for link (ie somewhere for button to take us)
 			if ( $link != false ) {
 				//Do the jumbotron with button
-				jp_jumbotron($tag, $text, $domain, $cta= true, $link, $ctaText );
+				jp_podstrap_jumbotron($tag, $text, $domain, $cta= true, $link, $ctaText );
 			}
 			else {
 				//Do the jumbotron without button.
-				jp_jumbotron($tag, $text, $cta = false );
+				jp_podstrap_jumbotron($tag, $text, $cta = false );
 			}
 			//display submenu
-			jp_feature_submenu( $feature->pod_id, $domain );
+			jp_podstrap_feature_submenu( $feature->pod_id, $domain );
 			
 			
 			/**SUBFEATURE SECTION**/
@@ -86,7 +86,7 @@ get_header(); ?>
 				} //endif
 			
 		} //end while have_posts 
-		jp_related_features($domain);
+		jp_podstrap_related_features($domain);
 		tha_content_bottom(); ?>
 	</div><!-- #content -->
 	<?php tha_content_after(); ?>

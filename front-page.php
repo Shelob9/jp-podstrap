@@ -31,11 +31,11 @@ get_header(); ?>
 			//get text for jumbotron
 			$front_text = $top->display('front_page_text');
 			//replace with place holder text if there isn't any
-			$text = jp_or_ipsums($front_text);
+			$text = jp_podstrap_or_ipsums($front_text);
 			$cta = true;
 			$link = 'http://google.com';
 			//Do the jumbotron
-			jp_jumbotron($tagline, $text, $domain, $cta, $link);
+			jp_podstrap_jumbotron($tagline, $text, $domain, $cta, $link);
 		
 			/**BOTTOM OF PAGE**/
 		  	//setup parameters before getting features pod
@@ -56,7 +56,7 @@ get_header(); ?>
 					//put ID in a var to be used in get_permalink
 					$id = $features->field('ID');
 					//set $short_title to the short description or some place holder text.
-					$short_desc = jp_or_ipsums(	$features->display('short_desc') );
+					$short_desc = jp_podstrap_or_ipsums(	$features->display('short_desc') );
 					?>
 					<div class="span4">
 						<h2><?php _e($features->display('short_title'), $domain); ?></h2>
