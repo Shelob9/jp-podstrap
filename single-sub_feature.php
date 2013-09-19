@@ -7,7 +7,7 @@
  * @package		The Bootstrap
  * @since		1.0.0 - 05.02.2012
  */
-$domain = 'ht';
+global $domain;
 get_header(); ?>
 
 <section id="primary" class="span12">

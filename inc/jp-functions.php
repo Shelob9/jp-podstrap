@@ -253,4 +253,11 @@ function jp_no_title_front_loop($title, $id) {
 }
 add_filter('the_title', 'jp_no_title_front_loop', 10, 2);
 endif; // ! jp_no_title_front_loop exists
+
+/**
+* Define translation text domain as a global
+*
+* @author Josh Pollock
+*/
+$GLOBALS['$domain'] = 'ht';
 ?>

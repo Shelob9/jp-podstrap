@@ -8,7 +8,7 @@
  * @since	1.3.0	- 29.04.2012
  */
 //define text Domain
-$domain = 'ht';
+global $domain
 get_header(); ?>
 
 <section id="primary" class="span12">
