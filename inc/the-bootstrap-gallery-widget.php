@@ -7,7 +7,7 @@
  */
 
 
-class The_Bootstrap_Gallery_Widget extends WP_Widget {
+class jp_podstrap_Gallery_Widget extends WP_Widget {
 
 
 	///////////////////////////////////////////////////////////////////////////
@@ -21,7 +21,7 @@ class The_Bootstrap_Gallery_Widget extends WP_Widget {
 	 * @since	1.1.0 - 08.03.2012
 	 * @access	public
 	 *
-	 * @return	The_Bootstrap_Gallery_Widget
+	 * @return	jp_podstrap_Gallery_Widget
 	 */
 	public function __construct() {
 		
@@ -130,11 +130,17 @@ class The_Bootstrap_Gallery_Widget extends WP_Widget {
 		$gallery_posts = get_posts( array(
 			'numberposts'	=>	-1,
 			'tax_query'		=>	array(
+
 				array(
+
 					'taxonomy'	=>	'post_format',
+
 					'field'		=>	'slug',
+
 					'terms'		=>	array( 'post-format-gallery' )
+
 				)
+
 			)
 		) );
 		
@@ -153,7 +159,7 @@ class The_Bootstrap_Gallery_Widget extends WP_Widget {
 		</p>
 		<?php
 	}
-} // End of class The_Bootstrap_Gallery_Widget
+} // End of class jp_podstrap_Gallery_Widget
 
 
 

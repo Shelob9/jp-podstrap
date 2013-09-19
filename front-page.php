@@ -97,7 +97,7 @@ get_header(); ?>
 				the_post();
 				get_template_part( '/partials/content', get_post_format() );
 			}
-			the_bootstrap_content_nav( 'nav-below' );
+			jp_podstrap_content_nav( 'nav-below' );
 		}
 	tha_content_bottom(); ?>
 	</div><!-- #content -->

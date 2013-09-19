@@ -40,7 +40,7 @@
 						'menu_class'		=>	'nav nav-pills pull-right',
 						'depth'				=>	3,
 						'fallback_cb'		=>	false,
-						'walker'			=>	new The_Bootstrap_Nav_Walker,
+						'walker'			=>	new jp_podstrap_Nav_Walker,
 					) ); ?>
 					<hgroup>
 						<h1 id="site-title">
@@ -61,8 +61,8 @@
 						<h3 class="assistive-text"><?php _e( 'Main menu', 'the-bootstrap' ); ?></h3>
 						<div class="skip-link"><a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to primary content', 'the-bootstrap' ); ?>"><?php _e( 'Skip to primary content', 'the-bootstrap' ); ?></a></div>
 						<div class="skip-link"><a class="assistive-text" href="#secondary" title="<?php esc_attr_e( 'Skip to secondary content', 'the-bootstrap' ); ?>"><?php _e( 'Skip to secondary content', 'the-bootstrap' ); ?></a></div>
-						<?php if ( has_nav_menu( 'primary' ) OR the_bootstrap_options()->navbar_site_name OR the_bootstrap_options()->navbar_searchform ) : ?>
-						<div <?php the_bootstrap_navbar_class(); ?>>
+						<?php if ( has_nav_menu( 'primary' ) OR jp_podstrap_options()->navbar_site_name OR jp_podstrap_options()->navbar_searchform ) : ?>
+						<div <?php jp_podstrap_navbar_class(); ?>>
 							<div class="navbar-inner">
 								<div class="container">
 									<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
@@ -71,7 +71,7 @@
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
 									</a>
-									<?php if ( the_bootstrap_options()->navbar_site_name ) : ?>
+									<?php if ( jp_podstrap_options()->navbar_site_name ) : ?>
 									<span class="brand"><?php bloginfo( 'name' ); ?></span>
 									<?php endif;?>
 									<div class="nav-collapse">
@@ -80,10 +80,10 @@
 											'menu_class'		=>	'nav',
 											'depth'				=>	3,
 											'fallback_cb'		=>	false,
-											'walker'			=>	new The_Bootstrap_Nav_Walker,
+											'walker'			=>	new jp_podstrap_Nav_Walker,
 										) ); 
-										if ( the_bootstrap_options()->navbar_searchform ) {
-											the_bootstrap_navbar_searchform();
+										if ( jp_podstrap_options()->navbar_searchform ) {
+											jp_podstrap_navbar_searchform();
 										} ?>
 								    </div>
 								</div>

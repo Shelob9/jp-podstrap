@@ -240,7 +240,7 @@ function jp_podstrap_feature_archive_loop() {
 			$query->the_post();
 			get_template_part( '/partials/content', get_post_format() );
 		} //endwhile
-		the_bootstrap_content_nav();
+		jp_podstrap_content_nav();
 		wp_reset_postdata();
 	} //endif
 }
