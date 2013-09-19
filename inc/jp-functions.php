@@ -244,7 +244,7 @@ endif; // ! jp_feature_archive_loop exists
 *
 * @author Josh Pollock
 */
-if ( ! function_exists( 'jp_no_title_front_loop' ) ) :
+if ( ! function_exists( 'jp_no_title_front_loop' ) && ! is_admin() ) :
 function jp_no_title_front_loop($title, $id) {
     if ( is_front_page() ) {
         return '';

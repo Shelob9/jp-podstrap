@@ -26,9 +26,27 @@ get_header(); ?>
 			$tag = get_the_title();
 			//get the short description from sub feature
 			$text = get_post_meta( get_the_id(), 'short_desc', true );
-			//Do the jumbotron
-			jp_jumbotron($tag, $text, $domain);
-			?>
+			//Find out if we are showing a CTA button and if so get text and link
+			$show = $feature->field( 'show_cta_button' );
+			if ( $show != 0 ) {
+				//get link and text for the button
+				$link = $feature->field( 'cta_link' );
+				$ctaText = $feature->field( 'cta_btn_text' );
+			}
+			else {
+				//To avoiud
+				$link = false;
+			}
+			//check if there is a value for link (ie somewhere for button to take us)
+			if ( $link != false ) {
+				//Do the jumbotron with button
+				jp_jumbotron($tag, $text, $domain, $cta= true, $link, $ctaText );
+			}
+			else {
+				//Do the jumbotron without button.
+				jp_jumbotron($tag, $text, $cta = false );
+			}
+		?>
 				<div class="row-fluid">
 					<div class="span12">
 						<?php the_content(); ?>
