@@ -82,14 +82,18 @@ get_header(); ?>
 			$video_title = $top->field( 'video_title');
 			$video_desc = $top->field( 'video_desc' );
 		?>
-		<div id="front-page-video">
-			<h3 class="video-title"><?php _e( $video_title, 'jp-podstrap' ); ?></h3>
-			<video controls>
-				<source src="<?php echo $video_src?>" type="<?php echo $video_mime; ?>">
-				Sorry your browser does not support HTML5 video.
-			</video>
-			<p class="video-desc"><?php _e( $video_desc, 'jp-podstrap' ); ?></p>			
-		</div>
+		<?php
+			//show video portion of page, if there is video to show
+			if ($video_id != '' ) : ?>
+				<div id="front-page-video">
+					<h3 class="video-title"><?php _e( $video_title, 'jp-podstrap' ); ?></h3>
+					<video controls>
+						<source src="<?php echo $video_src?>" type="<?php echo $video_mime; ?>">
+						Sorry your browser does not support HTML5 video.
+					</video>
+					<p class="video-desc"><?php _e( $video_desc, 'jp-podstrap' ); ?></p>			
+				</div>
+		<?php endif; ?>
 	<?php 
 		//show post content if there is any
 		if ( have_posts() ) {
