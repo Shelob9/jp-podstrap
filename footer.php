@@ -11,13 +11,13 @@
 					<?php tha_footer_top(); ?>
 					<div id="page-footer" class="well clearfix">
 						<?php wp_nav_menu( array(
-							'container'			=>	'nav',
-							'container_class'	=>	'subnav',
 							'theme_location'	=>	'footer-menu',
-							'menu_class'		=>	'credits nav nav-pills pull-left',
-							'depth'				=>	3,
-							'fallback_cb'		=>	'jp_podstrap_credits',
-							'walker'			=>	new jp_podstrap_Nav_Walker,
+							'menu'				=>	'footer-menu',
+							'depth'     		=> 	2,
+							'container'  		=> 	false,
+							'menu_class' 		=> 	'nav navbar-nav',
+							'fallback_cb' 		=> 	false,
+							'walker'			=> 	new wp_bootstrap_navwalker()
 						) );
 						?>
 						<div id="site-generator"<?php echo has_nav_menu('footer-menu') ? ' class="footer-nav-menu"' : ''; ?>>

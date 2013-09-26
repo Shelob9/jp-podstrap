@@ -34,13 +34,13 @@
 				<header id="branding" role="banner" class="col-lg-12">
 					<?php tha_header_top();
 					wp_nav_menu( array(
-						'container'			=>	'nav',
-						'container_class'	=>	'subnav clearfix',
 						'theme_location'	=>	'header-menu',
-						'menu_class'		=>	'nav nav-pills pull-right',
-						'depth'				=>	3,
-						'fallback_cb'		=>	false,
-						'walker'			=>	new jp_podstrap_Nav_Walker,
+						'menu'				=>	'header-menu',
+						'depth'     		 => 2,
+						'container'  		=> false,
+						'menu_class' 		=> 'nav navbar-nav',
+						'fallback_cb' 		=> false,
+						'walker'			 => new wp_bootstrap_navwalker()
 					) ); ?>
 					<hgroup>
 						<h1 id="site-title">
@@ -76,11 +76,13 @@
 									<?php endif;?>
 									<div class="nav-collapse">
 										<?php wp_nav_menu( array(
-											'theme_location'	=>	'primary',
-											'menu_class'		=>	'nav',
-											'depth'				=>	3,
-											'fallback_cb'		=>	false,
-											'walker'			=>	new jp_podstrap_Nav_Walker,
+											'theme_location'	=> 'primary',
+											'menu'       		=> 'primary',
+											'depth'      		=> 2,
+											'container' 		=> false,
+											'menu_class' 		=> 'nav navbar-nav',
+											'fallback_cb' 		=> 'wp_bootstrap_navwalker::fallback',
+											'walker' => new wp_bootstrap_navwalker()
 										) ); 
 										if ( jp_podstrap_options()->navbar_searchform ) {
 											jp_podstrap_navbar_searchform();

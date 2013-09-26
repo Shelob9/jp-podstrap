@@ -7,9 +7,16 @@
  */
 
 /**
+* Add walker class for Nav menu by Edward McIntyre - @twittem (GPLv2+)
+* @since 0.1
+*/
+require_once( 'inc/nav-walker.php' );
+
+/**
 * Add Josh's functions
 *
 * @author Josh Pollock
+* @since 0.1
 */
 require_once('inc/jp-functions.php');
 
@@ -65,10 +72,6 @@ function jp_podstrap_setup() {
 	 */
 	require_once( get_template_directory() . '/inc/custom-header.php' );
 	
-	/**
-	 * Custom Nav Menu handler for the Navbar.
-	 */
-	require_once( get_template_directory() . '/inc/nav-menu-walker.php' );
 	
 	/**
 	 * Theme Hook Alliance
