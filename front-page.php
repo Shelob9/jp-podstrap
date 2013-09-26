@@ -61,7 +61,7 @@ get_header(); ?>
 					<div class="col-lg-4">
 						<h2><?php _e($features->display('short_title'), 'jp-podstrap'); ?></h2>
 						<p><?php _e( $short_desc, 'jp-podstrap'); ?> </p>
-						<p><a class="btn" href="<?php echo esc_url(get_permalink( $id) ); ?>">View details &raquo;</a></p>
+						<p><a class="btn btn-primary btn-sm" href="<?php echo esc_url(get_permalink( $id) ); ?>">View details &raquo;</a></p>
 					</div>
 				<?php 
 				}
