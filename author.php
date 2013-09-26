@@ -10,7 +10,7 @@
 
 get_header(); ?>
 
-<section id="primary" class="span8">
+<section id="primary" class="col-lg-8">
 
 	<?php tha_content_before(); ?>
 	<div id="content" role="main">
@@ -27,12 +27,12 @@ get_header(); ?>
 			rewind_posts();
 			// If a user has filled out their description, show a bio on their entries.
 			if ( get_the_author_meta( 'description' ) ) : ?>
-			<div id="author-info" class="row-fluid">
-				<h2 class="span8"><?php printf( __( 'About %s', 'jp-podstrap' ), get_the_author() ); ?></h2>
-				<div id="author-avatar" class="span1">
+			<div id="author-info" class="row">
+				<h2 class="col-lg-8"><?php printf( __( 'About %s', 'jp-podstrap' ), get_the_author() ); ?></h2>
+				<div id="author-avatar" class="col-lg-1">
 					<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'the-bootstrap_author_bio_avatar_size', 70 ) ); ?>
 				</div><!-- #author-avatar -->
-				<div id="author-description" class="span7">
+				<div id="author-description" class="col-lg-7">
 					<?php the_author_meta( 'description' ); ?>
 				</div><!-- #author-description	-->
 			</div><!-- #author-info -->

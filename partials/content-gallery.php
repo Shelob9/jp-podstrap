@@ -27,7 +27,7 @@ tha_entry_before(); ?>
 	</header><!-- .entry-header -->
 
 	
-	<div class="entry-content row-fluid">
+	<div class="entry-content row">
 		<?php
 		$jp_podstrap_images = get_children( array(
 			'post_parent'		=>	$post->ID,
@@ -42,7 +42,7 @@ tha_entry_before(); ?>
 			$jp_podstrap_images		=	array_slice( $jp_podstrap_images, 0, 10 );
 		?>
 		
-		<div class="span3">
+		<div class="col-lg-3">
 			<?php the_excerpt(); ?>
 	
 			<p class="gallery-meta">

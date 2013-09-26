@@ -25,16 +25,18 @@ if ( ! function_exists('jp_podstrap_jumbotron') ) :
 function jp_podstrap_jumbotron($tagline, $text, $cta = false, $link = '', $ctaText = "Call To Action") { ?>
 	<!-- Jumbotron -->
 	<div class="jumbotron">
-		<h2><?php esc_attr_e($tagline, 'jp-podstrap'); ?></h2>
-		<p class="lead"><?php _e($text, 'jp-podstrap'); ?></p>
-		<?php if ($cta != false) {
-			//esc cta link into a var
-			$ctaLink = esc_url($link);
-			echo '<a class="btn btn-large btn-success" href="'.$ctaLink.'">';
-			_e($ctaText, 'jp-podstrap');
-			echo '</a>';
-		}
-		?>
+		<div class="container">
+			<h2><?php esc_attr_e($tagline, 'jp-podstrap'); ?></h2>
+			<p class="lead"><?php _e($text, 'jp-podstrap'); ?></p>
+			<?php if ($cta != false) {
+				//esc cta link into a var
+				$ctaLink = esc_url($link);
+				echo '<a class="btn btn-large btn-success" href="'.$ctaLink.'">';
+				_e($ctaText, 'jp-podstrap');
+				echo '</a>';
+			}
+			?>
+		</div>
     </div>
 <?php }
 endif; // ! jp_podstrap_jumbotron exists

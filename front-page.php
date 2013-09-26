@@ -13,7 +13,7 @@
 
 get_header(); ?>
 
-<section id="primary" class="span12">
+<section id="primary" class="col-lg-12">
 	<?php tha_content_before(); ?>
 	<div id="content" role="main">
 		<?php tha_content_top(); ?>
@@ -47,8 +47,8 @@ get_header(); ?>
 			$features = pods('feature', $params);
 		?>
 
-      <!-- Example row-fluid of columns -->
-      <div class="row-fluid">
+      <!-- Example row of columns -->
+      <div class="row">
       
       	<?php 
 			if ( 0 < $features->total() ) { 
@@ -58,10 +58,10 @@ get_header(); ?>
 					//set $short_title to the short description or some place holder text.
 					$short_desc = jp_podstrap_or_ipsums(	$features->display('short_desc') );
 					?>
-					<div class="span4">
+					<div class="col-lg-4">
 						<h2><?php _e($features->display('short_title'), 'jp-podstrap'); ?></h2>
 						<p><?php _e( $short_desc, 'jp-podstrap'); ?> </p>
-						<p><a class="btn" href="<?php echo esc_url(get_permalink( $id) ); ?>">View details &raquo;</a></p>
+						<p><a class="btn btn-primary btn-sm" href="<?php echo esc_url(get_permalink( $id) ); ?>">View details &raquo;</a></p>
 					</div>
 				<?php 
 				}

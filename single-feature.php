@@ -12,7 +12,7 @@
 
 get_header(); ?>
 
-<section id="primary" class="span12">
+<section id="primary" class="col-lg-12">
 	
 	<?php tha_content_before(); ?>
 	<div id="content" role="main">
@@ -64,20 +64,20 @@ get_header(); ?>
 						//get the ID for the icon
 						$icon_id = $icon['ID'];
 			?>
-				<div class="row-fluid">
-					<div class="span2">
+				<div class="row  well well-small" style="margin-right:2px; margin-left: 2px">
+					<div class="col-lg-2">
 						<?php  echo wp_get_attachment_image( $icon_id, 'thumbnail' ); ?>
 					</div>
-					<div class="span10 well well-small">
+					<div class="col-lg-10">
 						<a href="<?php echo esc_url( get_permalink($id) ); ?>">
 							<h4><?php _e( get_the_title($id), 'jp-podstrap' ); ?></h4>
 						</a>
    						<P><?php _e( $short_desc, 'jp-podstrap' ); ?></p>
-						<div class="btn pull-right">
+						<button type="button" class="btn btn-default pull-right">
 							<a href="<?php echo esc_url( get_permalink($id) ); ?>">
 								<?php _e( 'Learn More', 'jp-podstrap' ); ?>
 							</a>
-						</div>
+						</button>
 					</div>
 				</div>
 			<?php   } //end of foreach
