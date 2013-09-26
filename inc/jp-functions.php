@@ -233,4 +233,30 @@ function jp_podstrap_no_title_front_loop($title, $id) {
 }
 add_filter('the_title', 'jp_podstrap_no_title_front_loop', 10, 2);
 endif; // ! jp_podstrap_no_title_front_loop exists
+
+/**
+* Return admin notice if Pods isn't activate imploring user to install it.
+*
+* @package jp-podstrap
+* @author Josh Pollock
+* @since 0.1
+*/
+if ( ! function_exists( 'jp_podstrap_pods_nag' ) ) :
+function jp_podstrap_pods_nag() {
+	//url for plugins page
+	$plugins = admin_url( 'plugins.php' );
+	//Warning text content
+	$text = 'You do not have <a href="http://pods.io" title="Pods: WordPress Evolved">Pods</a> installed and activated, which is required for this theme to function properly. You can install it through the <a href="'.$plugins.'">plugins installer</a> or download it from <a href="http://WordPress.org/plugins/pods" title="Pods download page on WordPress.org">WordPress.org/plugins/pods</a> and install it manually.';
+    ?>
+    <div class="updated">
+        <p><?php _e( $text, 'jp-podstrap' ); ?></p>
+    </div>
+    <?php
+}
+//check if pods is active by testing for the existence of pods()
+// if not throw the warning
+if ( ! function_exists ( 'pods' ) ) {
+	add_action( 'admin_notices', 'jp_podstrap_pods_nag' );
+}
+endif; // ! jp_podstrap_pods_nag exixts
 ?>
