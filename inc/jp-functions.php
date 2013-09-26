@@ -3,14 +3,17 @@
 *
 * Functions that Josh added to the theme
 *
-* @package jp-podstrap * @author Josh Pollock
+* @package jp-podstrap
+* @author Josh Pollock
 * @since 0.1
 */
 
 /**
 * Create "Jumbotron at top of pages
 * 
+* @package jp-podstrap
 * @author Josh Pollock
+* @since 0.1
 * @param string $tagline Title for the section.
 * @param string $text Text for section.
 * @param sting 'jp-podstrap' Translation text domain
@@ -39,7 +42,9 @@ endif; // ! jp_podstrap_jumbotron exists
 /**
 * Add JS and CSS for this
 *
-* @author Josh pollock
+* @package jp-podstrap
+* @author Josh Pollock
+* @since 0.1
 */
 if ( ! function_exists( 'jp_podstrap_scripts_styles') ) :
 function jp_podstrap_scripts_styles() {
@@ -52,7 +57,9 @@ endif; // ! jp_podstrap_scripts_styles exists
 /**
 * Backstretch on jumbotron
 *
+* @package jp-podstrap
 * @author Josh Pollock
+* @since 0.1
 */
 if ( ! function_exists( 'jp_podstrap_jumbostretch' ) ) :
 function jp_podstrap_jumbostretch() {
@@ -82,7 +89,9 @@ endif; // ! jp_podstrap_jumbostretch exists
 /**
 * Output dynamically generated CSS to header
 *
+* @package jp-podstrap
 * @author Josh Pollock
+* @since 0.1
 */
 if ( ! function_exists ( 'jp_podstrap_dynamic_styles') ) :
 function jp_podstrap_dynamic_styles() {
@@ -105,7 +114,9 @@ endif; // ! jp_podstrap_dynamic_styles exists
 /**
 * Related Features Box
 *
+* @package jp-podstrap
 * @author Josh Pollock
+* @since 0.1
 */
 if ( ! function_exists ( 'jp_podstrap_related_features' ) ) :
 function jp_podstrap_related_features() {
@@ -150,7 +161,9 @@ endif; // ! jp_podstrap_related_features exists
 /**
 * Test if there is any content to return and if nto use Lorem Ipsums
 *
+* @package jp-podstrap
 * @author Josh Pollock
+* @since 0.1
 * @param string $want Text you want to return.
 * @param bool $short Get short or long place holder text as fallback. Default = true which gives short.
 */
@@ -181,7 +194,9 @@ endif; // ! jp_podstrap_or_ipsums exists
 /**
 * Loop for feature and sub_feature archive pages
 *
+* @package jp-podstrap
 * @author Josh Pollock
+* @since 0.1
 */
 if ( ! function_exists( 'jp_podstrap_feature_archive_loop' ) ) :
 function jp_podstrap_feature_archive_loop() {
@@ -205,7 +220,9 @@ endif; // ! jp_podstrap_feature_archive_loop exists
 /**
 * Don't return the title in loop on front-page, since it would look very bad
 *
+* @package jp-podstrap
 * @author Josh Pollock
+* @since 0.1
 */
 if ( ! function_exists( 'jp_podstrap_no_title_front_loop' ) && ! is_admin() ) :
 function jp_podstrap_no_title_front_loop($title, $id) {
