@@ -42,7 +42,7 @@ tha_entry_before(); ?>
 			$jp_podstrap_images		=	array_slice( $jp_podstrap_images, 0, 10 );
 		?>
 		
-		<div class="span3">
+		<div class="col-lg-3">
 			<?php the_excerpt(); ?>
 	
 			<p class="gallery-meta">

@@ -563,7 +563,7 @@ add_action( 'comment_form_comments_closed', 'jp_podstrap_comments_closed' );
  */
 function jp_podstrap_comment_form_defaults( $defaults ) {
 	return wp_parse_args( array(
-		'comment_field'			=>	'<div class="comment-form-comment control-group"><label class="control-label" for="comment">' . _x( 'Comment', 'noun', 'jp-podstrap' ) . '</label><div class="controls"><textarea class="span7" id="comment" name="comment" rows="8" aria-required="true"></textarea></div></div>',
+		'comment_field'			=>	'<div class="comment-form-comment control-group"><label class="control-label" for="comment">' . _x( 'Comment', 'noun', 'jp-podstrap' ) . '</label><div class="controls"><textarea class="col-lg-7" id="comment" name="comment" rows="8" aria-required="true"></textarea></div></div>',
 		'comment_notes_before'	=>	'',
 		'comment_notes_after'	=>	'<div class="form-allowed-tags control-group"><label class="control-label">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s', 'jp-podstrap' ), '</label><div class="controls"><pre>' . allowed_tags() . '</pre></div>' ) . '</div>
 									 <div class="form-actions">',
@@ -601,7 +601,7 @@ function jp_podstrap_comment( $comment, $args, $depth ) {
 		<li id="li-comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
 			<p class="row">
 				<strong class="ping-label span1"><?php _e( 'Pingback:', 'jp-podstrap' ); ?></strong>
-				<span class="span7"><?php comment_author_link(); edit_comment_link( __( 'Edit', 'jp-podstrap' ), '<span class="sep">&nbsp;</span><span class="edit-link label">', '</span>' ); ?></span>
+				<span class="col-lg-7"><?php comment_author_link(); edit_comment_link( __( 'Edit', 'jp-podstrap' ), '<span class="sep">&nbsp;</span><span class="edit-link label">', '</span>' ); ?></span>
 			</p>
 	
 	<?php else:

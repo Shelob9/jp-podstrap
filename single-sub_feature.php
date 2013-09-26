@@ -12,7 +12,7 @@
 
 get_header(); ?>
 
-<section id="primary" class="span12">
+<section id="primary" class="col-lg-12">
 	
 	<?php tha_content_before(); ?>
 	<div id="content" role="main">
@@ -50,7 +50,7 @@ get_header(); ?>
 			}
 		?>
 				<div class="row">
-					<div class="span12">
+					<div class="col-lg-12">
 						<?php the_content(); ?>
 					</div>
 				</div>

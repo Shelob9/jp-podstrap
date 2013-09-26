@@ -31,7 +31,7 @@
 		<div class="container">
 			<div id="page" class="hfeed row">
 				<?php tha_header_before(); ?>
-				<header id="branding" role="banner" class="span12">
+				<header id="branding" role="banner" class="col-lg-12">
 					<?php tha_header_top();
 					wp_nav_menu( array(
 						'container'			=>	'nav',

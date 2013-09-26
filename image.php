@@ -104,7 +104,7 @@ the_post();
 	</div><!-- #content -->
 	<?php tha_content_after(); ?>
 </section><!-- #primary -->
-<div id="attachment-comment" class="span8"><?php comments_template(); ?></div>
+<div id="attachment-comment" class="col-lg-8"><?php comments_template(); ?></div>
 <?php
 get_sidebar( 'image' );
 get_footer();
