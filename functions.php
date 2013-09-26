@@ -600,7 +600,7 @@ function jp_podstrap_comment( $comment, $args, $depth ) {
 	
 		<li id="li-comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
 			<p class="row">
-				<strong class="ping-label span1"><?php _e( 'Pingback:', 'jp-podstrap' ); ?></strong>
+				<strong class="ping-label col-lg-1"><?php _e( 'Pingback:', 'jp-podstrap' ); ?></strong>
 				<span class="col-lg-7"><?php comment_author_link(); edit_comment_link( __( 'Edit', 'jp-podstrap' ), '<span class="sep">&nbsp;</span><span class="edit-link label">', '</span>' ); ?></span>
 			</p>
 	
@@ -610,10 +610,10 @@ function jp_podstrap_comment( $comment, $args, $depth ) {
 		
 		<li  id="li-comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
 			<article id="comment-<?php comment_ID(); ?>" class="comment row">
-				<div class="comment-author-avatar span1<?php if ($offset) echo " offset{$offset}"; ?>">
+				<div class="comment-author-avatar col-lg-1<?php if ($offset) echo " offset{$offset}"; ?>">
 					<?php echo get_avatar( $comment, 70 ); ?>
 				</div>
-				<footer class="comment-meta span<?php echo $span; ?>">
+				<footer class="comment-meta col-lg-<?php echo $span; ?>">
 					<p class="comment-author vcard">
 						<?php
 							/* translators: 1: comment author, 2: date and time */

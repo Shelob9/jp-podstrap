@@ -30,7 +30,7 @@ foreach ( $attachments as $k => $attachment ) {
 the_post();
 ?>
 
-<section id="primary" class="image-attachment span12">
+<section id="primary" class="image-attachment col-lg-12">
 
 	<?php tha_content_before(); ?>
 	<div id="content" role="main">
