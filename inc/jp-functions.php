@@ -146,12 +146,14 @@ function jp_podstrap_related_features() {
 		
 			//wrap output in a well
 			echo '<div class="well well-small">';
-			esc_attr_e( 'Related Features:&nbsp;', 'jp-podstrap' );
-			//Show the titles of queried posts as links
-			while ( $query->have_posts() ) : $query->the_post();
-				the_title( '<p class="feature-group pull-left"><a href="' . get_permalink() .'" title="' . sprintf( esc_attr__( 'Permalink to %s', 'jp-podstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a>&nbsp;&nbsp;</p>');
-			endwhile; //have posts
-			wp_reset_postdata();
+				echo '<div class="pull-left">';
+					esc_attr_e( 'Related Features:&nbsp;', 'jp-podstrap' );
+				echo '</div>';
+				//Show the titles of queried posts as links
+				while ( $query->have_posts() ) : $query->the_post();
+					the_title( '<p class="feature-group pull-left"><a href="' . get_permalink() .'" title="' . sprintf( esc_attr__( 'Permalink to %s', 'jp-podstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a>&nbsp;&nbsp;</p>');
+				endwhile; //have posts
+				wp_reset_postdata();
 			echo "</div>";
 		} //emdif we have terms
 	} //endif is feature/Sub_feature
