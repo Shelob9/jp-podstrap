@@ -27,7 +27,7 @@ tha_entry_before(); ?>
 	</header><!-- .entry-header -->
 
 	
-	<div class="entry-content row-fluid">
+	<div class="entry-content row">
 		<?php
 		$jp_podstrap_images = get_children( array(
 			'post_parent'		=>	$post->ID,

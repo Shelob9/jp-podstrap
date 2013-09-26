@@ -64,7 +64,7 @@ get_header(); ?>
 						//get the ID for the icon
 						$icon_id = $icon['ID'];
 			?>
-				<div class="row-fluid">
+				<div class="row">
 					<div class="span2">
 						<?php  echo wp_get_attachment_image( $icon_id, 'thumbnail' ); ?>
 					</div>

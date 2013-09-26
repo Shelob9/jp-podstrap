@@ -49,7 +49,7 @@ get_header(); ?>
 				jp_podstrap_jumbotron($tag, $text, $cta = false );
 			}
 		?>
-				<div class="row-fluid">
+				<div class="row">
 					<div class="span12">
 						<?php the_content(); ?>
 					</div>
