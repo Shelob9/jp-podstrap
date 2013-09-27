@@ -38,28 +38,28 @@ get_header(); ?>
 			jp_podstrap_jumbotron($tagline, $text, $cta, $link);
 		
 			/**BOTTOM OF PAGE**/
-		  	//setup parameters before getting features pod
+		  	//setup parameters before getting benefits pod
 			$params = array( 
 				//limit to three
 				'limit'   => 3
 			 ); 
-			//get the main features and put them in $features array
-			$features = pods('feature', $params);
+			//get the main benefits and put them in $benefits array
+			$benefits = pods('benefit', $params);
 		?>
 
       <!-- Example row of columns -->
       <div class="row">
       
       	<?php 
-			if ( 0 < $features->total() ) { 
-				while ( $features->fetch() ) { 
+			if ( 0 < $benefits->total() ) { 
+				while ( $benefits->fetch() ) { 
 					//put ID in a var to be used in get_permalink
-					$id = $features->field('ID');
+					$id = $benefits->field('ID');
 					//set $short_title to the short description or some place holder text.
-					$short_desc = jp_podstrap_or_ipsums(	$features->display('short_desc') );
+					$short_desc = jp_podstrap_or_ipsums(	$benefits->display('short_desc') );
 					?>
 					<div class="col-lg-4">
-						<h2><?php _e($features->display('short_title'), 'jp-podstrap'); ?></h2>
+						<h2><?php _e($benefits->display('short_title'), 'jp-podstrap'); ?></h2>
 						<p><?php _e( $short_desc, 'jp-podstrap'); ?> </p>
 						<p><a class="btn btn-primary btn-sm" href="<?php echo esc_url(get_permalink( $id) ); ?>">View details &raquo;</a></p>
 					</div>

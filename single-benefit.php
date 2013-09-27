@@ -22,17 +22,17 @@ get_header(); ?>
 			the_post();
 			/**SETUP PODS OBJECT**/
 			//Not specifying a specific feature so WP will use current feature.
-			$feature = pods();
+			$benefit = pods();
 			/**TOP OF PAGE**/
 			//set up vars for jumbotron
 			$tag = get_the_title();
 			$text = get_the_content();
 			//Find out if we are showing a CTA button and if so get text and link
-			$show = $feature->field( 'show_cta_button' );
+			$show = $benefit->field( 'show_cta_button' );
 			if ( $show != 0 ) {
 				//get link and text for the button
-				$link = $feature->field( 'cta_link' );
-				$ctaText = $feature->field( 'cta_btn_text' );
+				$link = $benefit->field( 'cta_link' );
+				$ctaText = $benefit->field( 'cta_btn_text' );
 			}
 			else {
 				//To avoiud
@@ -51,7 +51,7 @@ get_header(); ?>
 			
 			/**SUBFEATURE SECTION**/
 			//Put the sub features in an array
-			$subFeatures = $feature->field('sub_features');
+			$subFeatures = $benefit->field('sub_features');
 			//loop through them creating links to their own pages if there is anything to loop through
 			if ( ! empty( $subFeatures ) ) {
 					foreach ($subFeatures as $subFeature) { 
