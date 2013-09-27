@@ -123,7 +123,7 @@ endif; // ! jp_podstrap_dynamic_styles exists
 if ( ! function_exists ( 'jp_podstrap_related_features' ) ) :
 function jp_podstrap_related_features() {
 	//first test if this a feature or sub_feature so we have our taxonomy to work with
-	if ( 'feature' == get_post_type() || 'sub_feature' == get_post_type() ) {
+	if ( 'benefit' == get_post_type() || 'sub_feature' == get_post_type() ) {
 		//get the feature/ sub_feature's feature categories
 		$terms = get_the_terms( get_the_id(), 'feature_cat' );
 		//test if there are any terms if so continue, if not then skip this
@@ -206,7 +206,7 @@ if ( ! function_exists( 'jp_podstrap_feature_archive_loop' ) ) :
 function jp_podstrap_feature_archive_loop() {
 	//query for both features and sub_features toghether
 	$args = array(
-				'post_type' => array( 'feature', 'sub_feature' ),
+				'post_type' => array( 'benefit', 'sub_feature' ),
 				'posts_per_page' => 3
 		);
 	$query = new WP_Query( $args );
