@@ -51,7 +51,10 @@ get_header(); ?>
 		?>
 				<div class="row">
 					<div class="col-lg-12">
-						<?php the_content(); ?>
+						<?php 
+							//echo post content if we have any
+							echo jp_podstrap_can_has_content();
+						?>
 					</div>
 				</div>
 			
