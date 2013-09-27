@@ -263,4 +263,23 @@ if ( ! function_exists ( 'pods' ) ) {
 	add_action( 'admin_notices', 'jp_podstrap_pods_nag' );
 }
 endif; // ! jp_podstrap_pods_nag exixts
+
+
+/**
+* Test if there is post content and return
+* I can has content?
+*
+* @package jp-podstrap
+* @author Josh Pollock
+* @since 0.1
+* @returns the post content 
+*/
+if ( ! function_exists( 'jp_podstrap_can_has_content' ) ) :
+function jp_podstrap_can_has_content() {
+	$cc = get_the_content();
+	if($cc != '') {
+		return $cc;
+	}
+}
+endif; // ! jp_podstrap_can_has_content exists
 ?>
