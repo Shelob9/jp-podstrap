@@ -26,7 +26,8 @@ get_header(); ?>
 			/**TOP OF PAGE**/
 			//set up vars for jumbotron
 			$tag = get_the_title();
-			$text = get_the_content();
+			//get the short description
+			$text = get_post_meta( get_the_id(), 'short_desc', true );
 			//Find out if we are showing a CTA button and if so get text and link
 			$show = $benefit->field( 'show_cta_button' );
 			if ( $show != 0 ) {
@@ -82,7 +83,8 @@ get_header(); ?>
 				</div>
 			<?php   } //end of foreach
 				} //endif
-			
+			//echo post content if we have any
+			echo jp_podstrap_can_has_content();
 		} //end while have_posts 
 		jp_podstrap_related_features( $parent = true );
 		tha_content_bottom(); ?>
