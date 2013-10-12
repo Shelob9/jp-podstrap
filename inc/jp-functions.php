@@ -102,12 +102,12 @@ function jp_podstrap_dynamic_styles() {
 		$pod = pods();
 		$title = $pod->field( 'top_title_color' );
 		$text = $pod->field( 'top_text_color' );
-	?>
-		<style>
-			.jumbotron h2{color: <?php echo $title; ?>;}
-			.jumbotron p{color: <?php echo $text; ?>;}
-		</style>
-<?php
+	    echo '
+            <style type="text/css">
+                .jumbotron h2{color: <?php echo $title; ?>;}
+                .jumbotron p{color: <?php echo $text; ?>;}
+            </style>
+        ';
 	}
 }
 add_action( 'wp_head', 'jp_podstrap_dynamic_styles' );
