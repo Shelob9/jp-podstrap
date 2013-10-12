@@ -53,6 +53,10 @@ get_header(); ?>
 			/**SUBFEATURE SECTION**/
 			//Put the sub features in an array
 			$subFeatures = $benefit->field('sub_features');
+            //get the id of the default icon, just in case we need it
+            $settings = pods( 'theme_options' );
+            $default_icon = $settings->field( 'default_feature_icon' );
+            $default_icon_id = $default_icon['ID'];
 			//loop through them creating links to their own pages if there is anything to loop through
 			if ( ! empty( $subFeatures ) ) {
 					foreach ($subFeatures as $subFeature) { 
@@ -62,8 +66,14 @@ get_header(); ?>
 						$short_desc = get_post_meta( $id, 'short_desc', true );
 						//get the icon field meta
 						$icon = get_post_meta( $id, 'icon', true );
-						//get the ID for the icon
-						$icon_id = $icon['ID'];
+						//get the ID for the icon, if $icon isn't empty
+                        if ( ! empty( $icon) ) {
+						    $icon_id = $icon['ID'];
+                        }
+                        else {
+                            //if no icon is set use the id of the default icon instead
+                            $icon_id = $default_icon_id;
+                        }
 			?>
 				<div class="row  well well-small" style="margin-right:2px; margin-left: 2px">
 					<div class="col-lg-2">
