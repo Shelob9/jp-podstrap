@@ -91,10 +91,12 @@ if ( ! function_exists( 'jp_podstrap_jumbostretch' ) ) :
 function jp_podstrap_jumbostretch() {
 	//First test if this is the front page or a feature or sub_feature so we have pods to pick from
 	if ( is_front_page() || get_post_type() == 'benefit'  || get_post_type() == 'sub_feature' ) {
-        //define $pod based on what post we are on
+        //define $pod based on what post we are on if not on front_page
         if ( is_front_page() ) {
             //for front page get theme option pod
             $pod = pods('theme_options');
+            //get background image
+            $bg = $pod->field( 'bg_page');
         }
         else {
             //get global $post object
@@ -105,14 +107,24 @@ function jp_podstrap_jumbostretch() {
             );
             //Get from pod for current post type
             $pod = pods( get_post_type(), $params );
+            //get theme option pod
+            $opt = pods('theme_options');
+            //get background image
+            $bg = $opt->field( 'bg_page' );
+
         }
-		//get the image field and turn it into ID then source URL
+		//for top bg- get the image field and turn it into ID then source URL
 		$img = $pod->field( 'top_bg' );
 		$img_id = $img['ID'];
 		$img_src = wp_get_attachment_url( $img_id );
+        //get img src from id for page bg
+        $bg_img_id = $bg['ID'];
+        $bg_img_src = wp_get_attachment_url( $bg_img_id );
 		//output the script into the footer
 		echo '<script>';
 		echo 'jQuery(".jumbotron").backstretch("'.$img_src.'");';
+        //check if
+        echo 'jQuery.backstretch( "'.$bg_img_src.'");';
 		echo '</script>';
 	}
 }
