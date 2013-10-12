@@ -73,7 +73,7 @@ get_header(); ?>
 			/**Get fields for video**/
 			//get the video field as array $video
 			$video = $top->field('front_page_video');
-			//get video ID and mimi type from that array
+			//get video ID and mime type from that array
 			$video_mime = $video['post_mime_type'];
 			$video_id = $video['ID'];
 			//get video source using its ID
@@ -81,10 +81,15 @@ get_header(); ?>
 			//get title and description for video
 			$video_title = $top->field( 'video_title');
 			$video_desc = $top->field( 'video_desc' );
+            //find out if we are using a linked video and what its ID is
+            $video_use_link = $top->field( 'use_linked_video');
+            $video_link = $top->field( 'front_page_video_link' );
 		?>
 		<?php
-			//show video portion of page, if there is video to show
-			if ($video_id != '' ) : ?>
+			//show uploaded video of page if:
+            //there is video to show, and we are not using linked video
+			if ( $video_id != '' && $video_use_link != 1 ) :
+        ?>
 				<div id="front-page-video">
 					<h3 class="video-title"><?php _e( $video_title, 'jp-podstrap' ); ?></h3>
 					<video controls>
@@ -93,7 +98,21 @@ get_header(); ?>
 					</video>
 					<p class="video-desc"><?php _e( $video_desc, 'jp-podstrap' ); ?></p>			
 				</div>
-		<?php endif; ?>
+		<?php
+            endif; //endif using uploaded video
+            //use linked video if:
+            //option is set to and a link is set
+            if ( $video_link != '' && $video_use_link == 1  ) :
+        ?>
+            <div id="front-page-video">
+                <h3 class="video-title"><?php _e( $video_title, 'jp-podstrap' ); ?></h3>
+                    <iframe src="//<?php echo $video_link; ?>" frameborder="0" allowfullscreen></iframe>
+                <p class="video-desc"><?php _e( $video_desc, 'jp-podstrap' ); ?></p>
+            </div>
+        <?php
+            endif; //using linked video
+        ?>
+
 	<?php 
 		//show post content if there is any
 		if ( have_posts() ) {
