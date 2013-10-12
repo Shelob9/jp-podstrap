@@ -122,7 +122,7 @@ endif; // ! jp_podstrap_jumbostretch exists
 /**
 * Related Features Box
 *
-* @todo Fix the don't show current post bit.
+* @returns posts in same feature group
 * @package jp-podstrap
 * @author Josh Pollock
 * @since 0.1
