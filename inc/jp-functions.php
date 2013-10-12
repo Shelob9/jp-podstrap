@@ -122,9 +122,14 @@ function jp_podstrap_jumbostretch() {
         $bg_img_src = wp_get_attachment_url( $bg_img_id );
 		//output the script into the footer
 		echo '<script>';
-		echo 'jQuery(".jumbotron").backstretch("'.$img_src.'");';
-        //check if
-        echo 'jQuery.backstretch( "'.$bg_img_src.'");';
+        //check if we have a top section bg img to output if so echo for that
+        if ( $img_src != false ) {
+            echo 'jQuery(".jumbotron").backstretch("' . $img_src . '");';
+        }
+        //check if we have a page bg img to show, if so echo for that too
+        if ( $bg_img_src != false ) {
+            echo 'jQuery.backstretch( "' . $bg_img_src . '");';
+        }
 		echo '</script>';
 	}
 }
