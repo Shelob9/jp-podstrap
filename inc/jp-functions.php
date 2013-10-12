@@ -124,8 +124,8 @@ if ( ! function_exists ( 'jp_podstrap_related_features' ) ) :
 function jp_podstrap_related_features() {
 	//first test if this a feature or sub_feature so we have our taxonomy to work with
 	if ( 'benefit' == get_post_type() || 'sub_feature' == get_post_type() ) {
-		//get the feature/ sub_feature's feature categories
-		$terms = get_the_terms( get_the_id(), 'feature_cat' );
+		//get the feature or benefit's feature categories
+		$terms = get_the_terms( get_the_id(), 'feature_group' );
 		//test if there are any terms if so continue, if not then skip this
 		if ( ! empty( $terms ) ) {
 			//get the slug foreach and put in $cats array to be fed to WP_Query
@@ -134,18 +134,18 @@ function jp_podstrap_related_features() {
 				$cats = $term->slug;
 			}
 			//query for posts in the same feature category(s)
+
 			$args = array(
-				'tax_query' => array(
-					'relation' => 'AND',
-					array(
-						'taxonomy' => 'feature_cat',
-						'field' => 'slug',
-						'terms' => array( $cats ),
-					)
-				)
+                'post_type' => array( 'benefit', 'sub_feature' ),
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'feature_group',
+                        'field' => 'slug',
+                        'terms' => $cats,
+                    )
+                )
 			);
 			$query = new WP_Query( $args );
-		
 			//wrap output in a well
 			echo '<div class="well well-small">';
 				echo '<div class="pull-left">';
@@ -157,7 +157,7 @@ function jp_podstrap_related_features() {
 				endwhile; //have posts
 				wp_reset_postdata();
 			echo "</div>";
-		} //emdif we have terms
+		} //endif we have terms
 	} //endif is feature/Sub_feature
 }
 endif; // ! jp_podstrap_related_features exists
