@@ -296,4 +296,29 @@ function jp_podstrap_can_has_content() {
 	}
 }
 endif; // ! jp_podstrap_can_has_content exists
+
+/**
+ * Output header scripts
+ *
+ * @package jp-podstrap
+ * @author Josh Pollock
+ * @since 0.1
+ * @returns header_scripts field to wp_head if anything is set
+ *
+ */
+if ( ! function_exists('jp_podstrap_header_scripts') ) :
+function jp_podstrap_header_scripts() {
+    //get theme options pod
+    $pods = pods('theme_options');
+    //get the header scripts
+    $scripts = $pods->field('header_scripts');
+    //echo if there's anything to echo
+    $out = $scripts;
+    if (! $out == '') {
+          echo "\n" . stripslashes( $out ) . "\n";
+    }
+}
+add_action('wp_head', 'jp_podstrap_header_scripts');
+endif; // ! jp_podstrap_header_scripts exists
+
 ?>
