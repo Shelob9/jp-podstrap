@@ -140,9 +140,12 @@ function jp_podstrap_related_features() {
 			foreach ( $terms as $term ) {
 				$cats = $term->slug;
 			}
+            //get id of post in main loop so we can exclude it from the query we're about to do
+            global $post;
+            $c_id = $post->ID;
 			//query for posts in the same feature category(s)
-
 			$args = array(
+                'post__not_in' => array( $c_id ),
                 'post_type' => array( 'benefit', 'sub_feature', 'post', 'pages' ),
                 'tax_query' => array(
                     array(
@@ -154,24 +157,15 @@ function jp_podstrap_related_features() {
 			);
 			$query = new WP_Query( $args );
             //Check if we have posts
-            //If so do we have more than one (ie the current post, which we will not show.
-            if ( $query->have_posts() && $query->found_posts > 1 ) {
-
+            if ( $query->have_posts() ) {
 			        //wrap output in a well
 			        echo '<div class="well well-small">';
                         echo '<div class="pull-left">';
                             esc_attr_e( 'Related Features:&nbsp;', 'jp-podstrap' );
                         echo '</div>';
                         while ( $query->have_posts() ) : $query->the_post();
-                            //Get the id of the posts in this loop to compare to main loop post's id
-                            $qpost = $query->post;
-                            $id = $qpost->ID;
-                            global $post;
-                            //Avoid showing a link to post ID from main loop
-                            if ( $id != $post->ID ) {
-                                //Show the titles of queried posts as links
-                                the_title( '<p class="feature-group pull-left"><a href="' . get_permalink() .'" title="' . sprintf( esc_attr__( 'Permalink to %s', 'jp-podstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a>&nbsp;&nbsp;</p>');
-                            } //endif is not same post ID as main loop
+                            //Show the titles of queried posts as links
+                            the_title( '<p class="feature-group pull-left"><a href="' . get_permalink() .'" title="' . sprintf( esc_attr__( 'Permalink to %s', 'jp-podstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a>&nbsp;&nbsp;</p>');
                         endwhile; //have posts
                  echo "</div>"; //end the well
             } //end if have_posts
