@@ -59,8 +59,14 @@ function jp_podstrap_scripts_styles() {
             $pod = pods('theme_options');
         }
         else {
-            //for other pages get from current pod
-            $pod = pods( get_post_type() );
+            //get global $post object
+            global $post;
+            ///set params to get current post's pods array on
+            $params = array(
+                'where' => "t.id = $post->ID",
+            );
+            //Get from pod for current post type
+            $pod = pods( get_post_type(), $params );
         }
         $title = $pod->field( 'top_title_color' );
         $text = $pod->field( 'top_text_color' );
@@ -86,14 +92,20 @@ function jp_podstrap_jumbostretch() {
 	//First test if this is the front page or a feature or sub_feature so we have pods to pick from
 	if ( is_front_page() || get_post_type() == 'benefit'  || get_post_type() == 'sub_feature' ) {
         //define $pod based on what post we are on
-		if ( is_front_page() ) {
-			//for front page get theme option pod
-			$pod = pods('theme_options');
+        if ( is_front_page() ) {
+            //for front page get theme option pod
+            $pod = pods('theme_options');
         }
-		else {
-			//for other pages get from current pod
-			$pod = pods( get_post_type() );
-		}
+        else {
+            //get global $post object
+            global $post;
+            ///set params to get current post's pods array on
+            $params = array(
+                'where' => "t.id = $post->ID",
+            );
+            //Get from pod for current post type
+            $pod = pods( get_post_type(), $params );
+        }
 		//get the image field and turn it into ID then source URL
 		$img = $pod->field( 'top_bg' );
 		$img_id = $img['ID'];
