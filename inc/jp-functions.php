@@ -53,8 +53,15 @@ function jp_podstrap_scripts_styles() {
 	wp_enqueue_script( 'backstretch', get_template_directory_uri().'/js/jquery.backstretch.min.js', array( 'jquery'), false, false );
 	wp_enqueue_style( 'jp-style', get_template_directory_uri().'/css/jp.css' );
     //If the front page or a feature or sub_feature add inline style
-    if ( is_front_page() || 'feature' == get_post_type() || 'sub_feature' == get_post_type() ) {
-        $pod = pods();
+    if ( is_front_page() || get_post_type() == 'benefit'  || get_post_type() == 'sub_feature' ) {
+        if ( is_front_page() ) {
+            //for front page get theme option pod
+            $pod = pods('theme_options');
+        }
+        else {
+            //for other pages get from current pod
+            $pod = pods( get_post_type() );
+        }
         $title = $pod->field( 'top_title_color' );
         $text = $pod->field( 'top_text_color' );
         $inline = "
@@ -77,14 +84,15 @@ endif; // ! jp_podstrap_scripts_styles exists
 if ( ! function_exists( 'jp_podstrap_jumbostretch' ) ) :
 function jp_podstrap_jumbostretch() {
 	//First test if this is the front page or a feature or sub_feature so we have pods to pick from
-	if ( is_front_page() || 'feature' == get_post_type() || 'sub_feature' == get_post_type() ) {
+	if ( is_front_page() || get_post_type() == 'benefit'  || get_post_type() == 'sub_feature' ) {
+        //define $pod based on what post we are on
 		if ( is_front_page() ) {
 			//for front page get theme option pod
 			$pod = pods('theme_options');
-		}
+        }
 		else {
 			//for other pages get from current pod
-			$pod = pods();
+			$pod = pods( get_post_type() );
 		}
 		//get the image field and turn it into ID then source URL
 		$img = $pod->field( 'top_bg' );
