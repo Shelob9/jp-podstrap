@@ -9,7 +9,7 @@
 				tha_footer_before(); ?>
 				<footer id="colophon" role="contentinfo" class="col-lg-12">
 					<?php tha_footer_top(); ?>
-					<div id="page-footer" class="well clearfix">
+					<div id="page-footer" class="clearfix">
 						<?php wp_nav_menu( array(
 							'theme_location'	=>	'footer-menu',
 							'menu'				=>	'footer-menu',
