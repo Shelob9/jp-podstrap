@@ -52,6 +52,17 @@ if ( ! function_exists( 'jp_podstrap_scripts_styles') ) :
 function jp_podstrap_scripts_styles() {
 	wp_enqueue_script( 'backstretch', get_template_directory_uri().'/js/jquery.backstretch.min.js', array( 'jquery'), false, false );
 	wp_enqueue_style( 'jp-style', get_template_directory_uri().'/css/jp.css' );
+    //If the front page or a feature or sub_feature add inline style
+    if ( is_front_page() || 'feature' == get_post_type() || 'sub_feature' == get_post_type() ) {
+        $pod = pods();
+        $title = $pod->field( 'top_title_color' );
+        $text = $pod->field( 'top_text_color' );
+        $inline = "
+            .jumbotron h2 {color: {$title}; }
+            .jumbotron p {color: {$text}; }
+        ";
+        wp_add_inline_style( 'jp-style', $inline );
+    }
 }
 add_action('wp_enqueue_scripts', 'jp_podstrap_scripts_styles');
 endif; // ! jp_podstrap_scripts_styles exists
@@ -87,31 +98,6 @@ function jp_podstrap_jumbostretch() {
 }
 add_action('wp_footer', 'jp_podstrap_jumbostretch');
 endif; // ! jp_podstrap_jumbostretch exists
-
-/**
-* Output dynamically generated CSS to header
-*
-* @package jp-podstrap
-* @author Josh Pollock
-* @since 0.1
-*/
-if ( ! function_exists ( 'jp_podstrap_dynamic_styles') ) :
-function jp_podstrap_dynamic_styles() {
-	//First test if this is the fornt page or a feature or sub_feature so we have pods to pick from
-	if ( is_front_page() || 'feature' == get_post_type() || 'sub_feature' == get_post_type() ) {
-		$pod = pods();
-		$title = $pod->field( 'top_title_color' );
-		$text = $pod->field( 'top_text_color' );
-	    echo '
-            <style type="text/css">
-                .jumbotron h2{color: <?php echo $title; ?>;}
-                .jumbotron p{color: <?php echo $text; ?>;}
-            </style>
-        ';
-	}
-}
-add_action( 'wp_head', 'jp_podstrap_dynamic_styles' );
-endif; // ! jp_podstrap_dynamic_styles exists
 
 /**
 * Related Features Box
