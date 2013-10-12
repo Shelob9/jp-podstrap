@@ -58,7 +58,7 @@ get_header(); ?>
 					//set $short_title to the short description or some place holder text.
 					$short_desc = jp_podstrap_or_ipsums(	$benefits->display('short_desc') );
 					?>
-					<div class="col-lg-4">
+					<div class="col-lg-4 fp-benefit">
 						<h2><?php _e($benefits->display('short_title'), 'jp-podstrap'); ?></h2>
 						<p><?php _e( $short_desc, 'jp-podstrap'); ?> </p>
 						<p><a class="btn btn-primary btn-sm" href="<?php echo esc_url(get_permalink( $id) ); ?>">View details &raquo;</a></p>
