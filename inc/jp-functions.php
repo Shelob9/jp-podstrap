@@ -168,7 +168,7 @@ function jp_podstrap_related_features() {
                             $id = $qpost->ID;
                             global $post;
                             //Avoid showing a link to post ID from main loop
-                            if ( $id != $post->id ) {
+                            if ( $id != $post->ID ) {
                                 //Show the titles of queried posts as links
                                 the_title( '<p class="feature-group pull-left"><a href="' . get_permalink() .'" title="' . sprintf( esc_attr__( 'Permalink to %s', 'jp-podstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a>&nbsp;&nbsp;</p>');
                             } //endif is not same post ID as main loop
