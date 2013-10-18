@@ -21,8 +21,8 @@ get_header(); ?>
 		while ( have_posts() ) {
 			the_post();
 			/**SETUP PODS OBJECT**/
-			//Not specifying a specific feature so WP will use current feature.
-			$benefit = pods();
+			//get for current benefit 
+			$benefit = pods( 'benefit' );
 			/**TOP OF PAGE**/
 			//set up vars for jumbotron
 			$tag = get_the_title();
