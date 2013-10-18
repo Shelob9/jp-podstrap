@@ -22,7 +22,7 @@ get_header(); ?>
 			the_post();
 			/**SETUP PODS OBJECT**/
 			//get for current benefit 
-			$benefit = pods( 'benefit' );
+			$benefit = pods( 'benefit', get_the_id() );
 			/**TOP OF PAGE**/
 			//set up vars for jumbotron
 			$tag = get_the_title();
