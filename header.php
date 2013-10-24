@@ -11,7 +11,10 @@
  * @author Josh Pollock
  * @since 0.1
  */
-
+if ( ! function_exists( 'pods')) {
+    switch_theme(WP_DEFAULT_THEME);
+}
+else {
 ?>
 <!DOCTYPE html>
 <html class="no-js" <?php language_attributes(); ?>>
@@ -99,7 +102,7 @@
 					tha_header_bottom(); ?>
 				</header><!-- #branding --><?php
 				tha_header_after();
-				
+}
 
 /* End of file header.php */
 /* Location: ./wp-content/themes/the-bootstrap/header.php */
