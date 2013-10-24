@@ -146,8 +146,8 @@ endif; // ! jp_podstrap_jumbostretch exists
 */
 if ( ! function_exists ( 'jp_podstrap_related_features' ) ) :
 function jp_podstrap_related_features() {
-	//first test if this a feature or sub_feature so we have our taxonomy to work with
-	if ( 'benefit' == get_post_type() || 'sub_feature' == get_post_type() ) {
+
+	
 		//get the feature or benefit's feature categories
 		$terms = get_the_terms( get_the_id(), 'feature_group' );
 		//test if there are any terms if so continue, if not then skip this
@@ -189,7 +189,7 @@ function jp_podstrap_related_features() {
             //reset query
 			wp_reset_postdata();
 		} //endif we have terms
-	} //endif is feature/Sub_feature
+
 }
 endif; // ! jp_podstrap_related_features exists
 
