@@ -153,22 +153,21 @@ function jp_podstrap_related_features() {
         //get the slug foreach and put in $cats array to be fed to WP_Query
         $cats = array();
         foreach ($terms as $term) {
-            $cats = $term->slug;
+            $cats[] = $term->slug;
         }
         //get id of post in main loop so we can exclude it from the query we're about to do
-        global $post;
-        $c_id = $post->ID;
+        $c_id = get_the_ID();
         //query for posts in the same feature category(s)
         $args = array(
-            'post__not_in' => array($c_id),
-            'post_type' => array('benefit', 'sub_feature', 'post', 'pages'),
             'tax_query' => array(
                 array(
                     'taxonomy' => 'feature_group',
                     'field' => 'slug',
                     'terms' => $cats,
                 )
-            )
+            ),
+            'post__not_in' => array($c_id),
+            'post_type' => array('benefit', 'sub_feature', 'post', 'pages'),
         );
         $query = new WP_Query($args);
         //Check if we have posts
