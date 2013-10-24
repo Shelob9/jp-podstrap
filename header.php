@@ -11,6 +11,11 @@
  * @author Josh Pollock
  * @since 0.1
  */
+
+/**
+ * First test if Pods is activated.
+ * If not switch to default theme.
+ */
 if ( ! function_exists( 'pods')) {
     switch_theme(WP_DEFAULT_THEME);
 }
