@@ -30,26 +30,21 @@ get_header(); ?>
 			$text = get_post_meta( get_the_id(), 'short_desc', true );
 			//Find out if we are showing a CTA button and if so get text and link
 			$show = $benefit->field( 'show_cta_button' );
+			//set $cta, $link and CTA to empty values, and then set them to actual values if necessary.
+			$cta = false;
+			$link = '';
+			$ctaText = '';
 			if ( $show != 0 ) {
+				//set $cta to true
+				$cta = true;
 				//get link and text for the button
 				$link = $benefit->field( 'cta_link' );
 				$ctaText = $benefit->field( 'cta_btn_text' );
 			}
-			else {
-				//To avoiud
-				$link = false;
-			}
-			//check if there is a value for link (ie somewhere for button to take us)
-			if ( $link != false ) {
-				//Do the jumbotron with button
-				jp_podstrap_jumbotron($tag, $text, $cta= true, $link, $ctaText );
-			}
-			else {
-				//Do the jumbotron without button.
-				jp_podstrap_jumbotron($tag, $text, $cta = false );
-			}
+			//do jumbotron
+			jp_podstrap_jumbotron($tag, $text, $cta = false, $link = '', $ctaText = "Call To Action" );
 			
-			
+
 			/**SUBFEATURE SECTION**/
 			//Put the sub features in an array
 			$subFeatures = $benefit->field('sub_features');
