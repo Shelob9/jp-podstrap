@@ -146,50 +146,47 @@ endif; // ! jp_podstrap_jumbostretch exists
 */
 if ( ! function_exists ( 'jp_podstrap_related_features' ) ) :
 function jp_podstrap_related_features() {
-
-	
-		//get the feature or benefit's feature categories
-		$terms = get_the_terms( get_the_id(), 'feature_group' );
-		//test if there are any terms if so continue, if not then skip this
-		if ( ! empty( $terms ) ) {
-			//get the slug foreach and put in $cats array to be fed to WP_Query
-			$cats = array();
-			foreach ( $terms as $term ) {
-				$cats = $term->slug;
-			}
-            //get id of post in main loop so we can exclude it from the query we're about to do
-            global $post;
-            $c_id = $post->ID;
-			//query for posts in the same feature category(s)
-			$args = array(
-                'post__not_in' => array( $c_id ),
-                'post_type' => array( 'benefit', 'sub_feature', 'post', 'pages' ),
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => 'feature_group',
-                        'field' => 'slug',
-                        'terms' => $cats,
-                    )
+    //get the feature or benefit's feature categories
+    $terms = get_the_terms(get_the_id(), 'feature_group');
+    //test if there are any terms if so continue, if not then skip this
+    if (!empty($terms)) {
+        //get the slug foreach and put in $cats array to be fed to WP_Query
+        $cats = array();
+        foreach ($terms as $term) {
+            $cats = $term->slug;
+        }
+        //get id of post in main loop so we can exclude it from the query we're about to do
+        global $post;
+        $c_id = $post->ID;
+        //query for posts in the same feature category(s)
+        $args = array(
+            'post__not_in' => array($c_id),
+            'post_type' => array('benefit', 'sub_feature', 'post', 'pages'),
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'feature_group',
+                    'field' => 'slug',
+                    'terms' => $cats,
                 )
-			);
-			$query = new WP_Query( $args );
-            //Check if we have posts
-            if ( $query->have_posts() ) {
-			        //wrap output in a well
-			        echo '<div class="well well-small">';
-                        echo '<div class="pull-left">';
-                            esc_attr_e( 'Related Features:&nbsp;', 'jp-podstrap' );
-                        echo '</div>';
-                        while ( $query->have_posts() ) : $query->the_post();
-                            //Show the titles of queried posts as links
-                            the_title( '<p class="feature-group pull-left"><a href="' . get_permalink() .'" title="' . sprintf( esc_attr__( 'Permalink to %s', 'jp-podstrap' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">', '</a>&nbsp;&nbsp;</p>');
-                        endwhile; //have posts
-                 echo "</div>"; //end the well
-            } //end if have_posts
-            //reset query
-			wp_reset_postdata();
-		} //endif we have terms
-
+            )
+        );
+        $query = new WP_Query($args);
+        //Check if we have posts
+        if ($query->have_posts()) {
+            //wrap output in a well
+            echo '<div class="well well-small">';
+            echo '<div class="pull-left">';
+            esc_attr_e('Related Features:&nbsp;', 'jp-podstrap');
+            echo '</div>';
+            while ($query->have_posts()) : $query->the_post();
+                //Show the titles of queried posts as links
+                the_title('<p class="feature-group pull-left"><a href="' . get_permalink() . '" title="' . sprintf(esc_attr__('Permalink to %s', 'jp-podstrap'), the_title_attribute('echo=0')) . '" rel="bookmark">', '</a>&nbsp;&nbsp;</p>');
+            endwhile; //have posts
+            echo "</div>"; //end the well
+        } //end if have_posts
+        //reset query
+        wp_reset_postdata();
+    } //endif we have terms
 }
 endif; // ! jp_podstrap_related_features exists
 
