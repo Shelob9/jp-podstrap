@@ -20,10 +20,10 @@ get_header(); ?>
 		<?php
 			/**TOP OF PAGE**/
 			//Get the theme_options pod object
-			$top = pods('theme_options');
+			$settings = pods('theme_options');
 			//set up vars for jumbotron
 			//get the tagline
-			$tagline = $top->display('front_page_tagline');
+			$tagline = $settings->display('front_page_tagline');
 			//if it's not set use site tagline instead.
 			if ( $tagline == '' ) {
 				$tagline = get_bloginfo( 'description' );
@@ -72,18 +72,18 @@ get_header(); ?>
 		<?php
 			/**Get fields for video**/
 			//get the video field as array $video
-			$video = $top->field('front_page_video');
+			$video = $settings->field('front_page_video');
 			//get video ID and mime type from that array
 			$video_mime = $video['post_mime_type'];
 			$video_id = $video['ID'];
 			//get video source using its ID
 			$video_src = wp_get_attachment_url( $video_id);
 			//get title and description for video
-			$video_title = $top->field( 'video_title');
-			$video_desc = $top->field( 'video_desc' );
+			$video_title = $settings->field( 'video_title');
+			$video_desc = $settings->field( 'video_desc' );
             //find out if we are using a linked video and what its ID is
-            $video_use_link = $top->field( 'use_linked_video');
-            $video_link = $top->field( 'front_page_video_link' );
+            $video_use_link = $settings->field( 'use_linked_video');
+            $video_link = $settings->field( 'front_page_video_link' );
 		?>
 		<?php
 			//show uploaded video of page if:
