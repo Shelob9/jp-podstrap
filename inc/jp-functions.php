@@ -234,7 +234,8 @@ function jp_podstrap_feature_archive_loop() {
 	//query for both features and sub_features toghether
 	$args = array(
 				'post_type' => array( 'benefit', 'sub_feature' ),
-				'posts_per_page' => 3
+				'posts_per_page' => 5,
+				'paged'	=> 'true'
 		);
 	$query = new WP_Query( $args );
 	if ( $query->have_posts() ) {
